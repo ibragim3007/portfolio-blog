@@ -1,16 +1,14 @@
-import { Row, Space } from 'antd';
 import React from 'react';
 import { config } from '../../../router/routerConfig';
 import LinkItem from './LinkItem';
+import { Grid } from '@mui/joy';
 
 const NavLinks = () => {
   return (
-    <Row>
-      <Space size="large">
-        <LinkItem to={config.home}>Home</LinkItem>
-        <LinkItem to={config.about}>About</LinkItem>
-      </Space>
-    </Row>
+    <Grid container gap={2}>
+      <LinkItem to={config.home}>Home</LinkItem>
+      <LinkItem to={config.about}>About</LinkItem>
+    </Grid>
   );
 };
 
