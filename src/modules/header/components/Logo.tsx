@@ -1,7 +1,8 @@
 import React from 'react';
+import { Title } from '../../../shared/typography/Title';
 
 const Logo = () => {
-  return <h3>Ibragim.I Portfolio</h3>;
+  return <Title variant="title">Ibragim.I Portfolio</Title>;
 };
 
 export default Logo;

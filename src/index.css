@@ -11,7 +11,7 @@
   /* primary, background, secondary */
 
   --primary-rgb: 235, 0, 255;
-  --background-end-rgb: 255, 255, 255;
+  --background-rgb: 240, 240, 240;
   --card-rgb: 255, 255, 255;
 
   /* button check color */
@@ -31,6 +31,9 @@
 
   /* text color */
   --text-color: #000000;
+
+  /* border-for-card-color */
+  --border-color: #d7d7d7;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,8 +41,8 @@
     --gradient-wrapper: linear-gradient(140deg, #6734c3 0%, #d355de 100%);
 
     --primary-rgb: 235, 0, 255;
-    --background-rgb: 0, 0, 0;
-    --card-rgb: 47, 60, 80;
+    --background-rgb: 10, 10, 10;
+    --card-rgb: #191618;
 
     /* button check color */
     --foreground-rgb: 167, 122, 223;
@@ -54,10 +57,13 @@
     --check-rgb: 233, 64, 87;
 
     /* text color */
-    --text-color: #f8adff;
+    --text-color: #ffffff;
 
     /* link color */
     --link-color: #0080ff;
+
+    /* border-for-card-color */
+    --border-color: #d7d7d78a;
   }
 }
 

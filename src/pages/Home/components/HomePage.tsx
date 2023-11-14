@@ -1,12 +1,13 @@
 import React from 'react';
-import TheHeader from '../../../modules/header';
+
+import Greetings from '../../../modules/greetings';
+import AppWidth from '../../../shared/layout/AppWidth';
 
 const HomePage = () => {
   return (
-    <div>
-      <TheHeader />
-      <h1>Home Page</h1>
-    </div>
+    <AppWidth>
+      <Greetings />
+    </AppWidth>
   );
 };
 
