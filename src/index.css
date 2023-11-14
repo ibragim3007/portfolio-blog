@@ -1,6 +1,6 @@
 :root {
   --max-width: 1100px;
-  --border-radius: 32px;
+  --border-radius: 7px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
     'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
@@ -12,7 +12,7 @@
 
   --primary-rgb: 235, 0, 255;
   --background-rgb: 240, 240, 240;
-  --card-rgb: 255, 255, 255;
+  --card-rgb: #fafafa;
 
   /* button check color */
   --foreground-rgb: 167, 122, 223;
@@ -63,7 +63,7 @@
     --link-color: #0080ff;
 
     /* border-for-card-color */
-    --border-color: #d7d7d78a;
+    --border-color: rgba(61, 61, 61, 0.34);
   }
 }
 
