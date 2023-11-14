@@ -4,7 +4,7 @@ import { Title } from '../../../shared/typography/Title';
 
 const Greetings = () => {
   return (
-    <Card style={{ marginTop: 20, padding: '20px 50px' }}>
+    <Card style={{ marginTop: 30, marginBottom: 15, padding: '20px 50px', border: '1px dashed #777' }}>
       <Title variant="title">Welcome to my blog!</Title>
       <Title variant="text">
         <span>

@@ -7,7 +7,7 @@ export const HeaderCard = () => {
   return (
     <Grid container justifyContent="space-between" alignItems="center">
       <Grid container alignItems="center" gap={3}>
-        <Avatar url="https://lh3.googleusercontent.com/a/ACg8ocLkE0L8hRRdQ07H5nm3TWw_05-Pd5d0rgt-surq7vRE0po=s576-c-no" />
+        <Avatar url="https://sm.ign.com/ign_ap/cover/a/avatar-gen/avatar-generations_hugw.jpg" />
         <Title variant="title">Hello</Title>
       </Grid>
       <Grid>

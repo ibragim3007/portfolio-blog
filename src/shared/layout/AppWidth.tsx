@@ -6,7 +6,7 @@ interface AppWidthProps {
 }
 
 const AppWidth: React.FC<AppWidthProps> = ({ children }) => {
-  return <Grid style={{ width: '70%', margin: '0 auto' }}>{children}</Grid>;
+  return <Grid style={{ maxWidth: 1000, margin: '0 auto' }}>{children}</Grid>;
 };
 
 export default AppWidth;

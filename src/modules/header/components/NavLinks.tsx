@@ -8,6 +8,7 @@ const NavLinks = () => {
     <Grid container gap={2}>
       <LinkItem to={config.home}>Home</LinkItem>
       <LinkItem to={config.about}>About</LinkItem>
+      <LinkItem to={config.admin}>Admin</LinkItem>
     </Grid>
   );
 };
