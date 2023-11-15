@@ -7,7 +7,7 @@ import { Card } from '../../../shared/layout/Card';
 
 const TheHeader = () => {
   return (
-    <Card padding={'0px'}>
+    <Card style={{ marginBottom: 20 }} padding={'0px'}>
       <Grid
         container
         justifyContent="space-between"

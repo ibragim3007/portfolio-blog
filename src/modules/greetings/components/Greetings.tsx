@@ -1,10 +1,16 @@
-import React from 'react';
-import { Card } from '../../../shared/layout/Card';
+import React, { useState } from 'react';
 import { Title } from '../../../shared/typography/Title';
+import ClosedCard from '../../../components/Cards/ClosedCard';
 
 const Greetings = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  const onClose = () => {
+    setIsVisible(false);
+  };
+
   return (
-    <Card style={{ marginTop: 30, marginBottom: 15, padding: '20px 50px', border: '1px dashed #777' }}>
+    <ClosedCard isVisible={isVisible} closeFunction={onClose}>
       <Title variant="title">Welcome to my blog!</Title>
       <Title variant="text">
         <span>
@@ -29,7 +35,7 @@ const Greetings = () => {
           Warm regards, Ibragim Ibragimov
         </span>
       </Title>
-    </Card>
+    </ClosedCard>
   );
 };
 

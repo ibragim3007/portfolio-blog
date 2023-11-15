@@ -2,6 +2,8 @@ import { Button, Grid } from '@mui/joy';
 import React from 'react';
 import { Title } from '../../../shared/typography/Title';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { NavLink } from 'react-router-dom';
+import { config } from '../../../router/routerConfig';
 
 const SignUpButton = () => {
   return (
@@ -12,7 +14,9 @@ const SignUpButton = () => {
         and projects that make up my creative journey.
       </Title>
       <Grid container justifyContent="flex-end" style={{ marginRight: 50 }}>
-        <Button endDecorator={<ArrowForwardIosIcon style={{ fontSize: 14 }} />}>Sign Up</Button>
+        <NavLink to={config.signup}>
+          <Button endDecorator={<ArrowForwardIosIcon style={{ fontSize: 14 }} />}>Sign Up</Button>
+        </NavLink>
       </Grid>
     </Grid>
   );
