@@ -9,4 +9,8 @@ export const Input = styled.input`
   outline: none;
   width: 100%;
   color: var(--text-color);
+  transition: 0.1s ease;
+  &:focus {
+    filter: brightness(150%);
+  }
 `;

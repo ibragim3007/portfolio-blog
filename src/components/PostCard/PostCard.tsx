@@ -11,7 +11,7 @@ const PostCard = () => {
       <HeaderCard />
       <ContentCard />
       <Grid container justifyContent="flex-end">
-        <LikeButton />
+        <LikeButton amountOfLikes={2} />
       </Grid>
     </Card>
   );
