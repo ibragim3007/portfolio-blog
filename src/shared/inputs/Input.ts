@@ -6,7 +6,7 @@ interface InputProps {
 
 export const Input = styled.input<InputProps>`
   border-radius: var(--border-radius);
-  padding: 13px 25px;
+  padding: 13px 13px;
   font-size: 16px;
   background-color: var(--card-rgb);
   border: 1px solid var(--border-color);

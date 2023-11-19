@@ -8,8 +8,11 @@ interface TitleProps {
 
 export const Title = styled.p<TitleProps>`
   color: var(--text-color);
-  font-size: ${props => detectTitleSize(props.variant || 'title')};
+  font-size: ${props => detectTitleSize(props.variant || 'text')};
   font-weight: ${props => (props.variant === 'title' ? 'bold' : 'normal')};
+  opacity: ${props => (props.variant === 'subtitle' ? 0.7 : 1)};
   letter-spacing: 0.9px;
-  line-height: 22px;
+  margin: 0px;
+  padding: 0px;
+  line-height: ${props => (props.variant === 'text' ? 1.7 : 1)};
 `;
