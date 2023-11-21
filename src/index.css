@@ -14,6 +14,8 @@
   --background-rgb: 240, 240, 240;
   --card-rgb: #fafafa;
 
+  --error-color: rgb(190, 33, 33);
+
   /* button check color */
   --foreground-rgb: 167, 122, 223;
 
@@ -43,6 +45,8 @@
     --primary-rgb: 235, 0, 255;
     --background-rgb: 10, 10, 10;
     --card-rgb: #191618;
+
+    --error-color: rgb(223, 0, 11);
 
     /* button check color */
     --foreground-rgb: 167, 122, 223;

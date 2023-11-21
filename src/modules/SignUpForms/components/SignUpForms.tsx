@@ -3,14 +3,24 @@ import { Card } from '../../../shared/layout/Card';
 import LabelInput from '../../../components/Fields/LabelInput';
 import { Button, Grid, Stack } from '@mui/joy';
 import SignUpInfo from './SignUpInfo';
-import { useAppSelector } from '../../../hooks/redux/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux/reduxHooks';
 import ModalRegister from './ModalRegister/ModalRegister';
+import { checkInputValue } from '../store/actions/checkInputValue';
 
 const SignUpForms = () => {
   const { fields } = useAppSelector(state => state.signUpReducer);
+  const dispath = useAppDispatch();
 
   const [open, setOpen] = useState(false);
-  const openModalWindow = () => setOpen(true);
+  const openModalWindow = () => {
+    dispath(checkInputValue(fields.firstName.id));
+    dispath(checkInputValue(fields.lastName.id));
+    if (!fields.firstName.value || !fields.lastName.value) {
+      return;
+    }
+    setOpen(true);
+  };
+
   const closeModalWindow = () => setOpen(false);
 
   return (
@@ -24,12 +34,16 @@ const SignUpForms = () => {
             label={fields.firstName.label}
             placeholder="Type your name"
             disabled={open}
+            error={fields.firstName.error?.status}
+            hint={fields.firstName.error?.message}
           />
           <LabelInput
             id={fields.lastName.id}
             value={fields.lastName.value}
             label={fields.lastName.label}
             placeholder="Type your last name"
+            error={fields.lastName.error?.status}
+            hint={fields.lastName.error?.message}
             disabled={open}
           />
         </Grid>

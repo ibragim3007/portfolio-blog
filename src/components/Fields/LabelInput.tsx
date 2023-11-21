@@ -8,13 +8,15 @@ import { changeValueInput } from '../../modules/SignUpForms/store/actions/change
 interface LabelInputProps {
   id: string;
   label?: string;
-  type?: 'password';
+  type?: React.HTMLInputTypeAttribute;
   placeholder?: string;
   value?: string;
   disabled?: boolean;
+  error?: boolean;
+  hint?: string;
 }
 
-const LabelInput: React.FC<LabelInputProps> = ({ label, type, placeholder, value, id, disabled }) => {
+const LabelInput: React.FC<LabelInputProps> = ({ label, type, placeholder, value, id, disabled, error, hint }) => {
   const dispath = useAppDispatch();
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispath(changeValueInput(e.target.value, id));
@@ -29,7 +31,13 @@ const LabelInput: React.FC<LabelInputProps> = ({ label, type, placeholder, value
         value={value}
         placeholder={placeholder}
         type={type || 'text'}
+        color={error ? 'error' : 'primary'}
       />
+      {hint && (
+        <Title error={error} variant="subtitle">
+          {hint}
+        </Title>
+      )}
     </Stack>
   );
 };

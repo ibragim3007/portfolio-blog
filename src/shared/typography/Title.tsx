@@ -4,10 +4,11 @@ import { detectTitleSize } from './helpers/detectTitleSize';
 
 interface TitleProps {
   variant?: variants;
+  error?: boolean;
 }
 
 export const Title = styled.p<TitleProps>`
-  color: var(--text-color);
+  color: ${props => (props.error ? 'var(--error-color)' : 'var(--text-color)')};
   font-size: ${props => detectTitleSize(props.variant || 'text')};
   font-weight: ${props => (props.variant === 'title' ? 'bold' : 'normal')};
   opacity: ${props => (props.variant === 'subtitle' ? 0.7 : 1)};

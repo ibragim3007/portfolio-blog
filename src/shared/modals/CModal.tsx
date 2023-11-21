@@ -1,4 +1,4 @@
-import { Grid, Modal, ModalDialog } from '@mui/joy';
+import { Modal, ModalDialog } from '@mui/joy';
 import React from 'react';
 import { Card } from '../layout/Card';
 
