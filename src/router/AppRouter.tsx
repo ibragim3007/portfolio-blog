@@ -1,14 +1,29 @@
-import React from 'react';
+import { useQuery } from '@apollo/client';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { config } from './routerConfig';
-import HomePage from '../pages/Home';
-import AboutPage from '../pages/About';
+import { MeInterface } from '../GraphQL/@client/interfaces/meInterface';
+import { ME } from '../GraphQL/@client/me';
 import TheHeader from '../modules/header';
-import { WrapperApp } from '../shared/layout/WrapperApp';
+import AboutPage from '../pages/About';
 import AuthPage from '../pages/AuthPage';
+import HomePage from '../pages/Home';
 import SignUpPage from '../pages/SignUp/components/SignUpPage';
+import { WrapperApp } from '../shared/layout/WrapperApp';
+import { config } from './routerConfig';
+import { useAppDispatch } from '../hooks/redux/reduxHooks';
+import { setMeAction } from '../store/me/actions/setMeAction';
+import ClientProvider from '../security/ClientProvider';
 
 const AppRoter: React.FC = () => {
+  const { data, loading } = useQuery<{ me: MeInterface }>(ME);
+  const dispath = useAppDispatch();
+
+  useEffect(() => {
+    if (data?.me && !loading) {
+      dispath(setMeAction(data.me));
+    }
+  }, [loading, data, dispath]);
+
   return (
     <WrapperApp>
       <BrowserRouter>

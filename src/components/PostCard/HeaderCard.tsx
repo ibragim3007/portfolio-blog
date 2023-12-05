@@ -3,15 +3,20 @@ import React from 'react';
 import { Title } from '../../shared/typography/Title';
 import Avatar from '../Avatar/Avatar';
 
-export const HeaderCard = () => {
+interface HeaderCardProps {
+  title: string;
+  createDate: Date;
+}
+
+export const HeaderCard: React.FC<HeaderCardProps> = ({ title, createDate }) => {
   return (
     <Grid container justifyContent="space-between" alignItems="center">
       <Grid container alignItems="center" gap={3}>
         <Avatar url="https://sm.ign.com/ign_ap/cover/a/avatar-gen/avatar-generations_hugw.jpg" />
-        <Title variant="title">Hello</Title>
+        <Title variant="title">{title}</Title>
       </Grid>
       <Grid>
-        <Title variant="subtitle">12 may 2023</Title>
+        <Title variant="subtitle">{createDate.toString()}</Title>
       </Grid>
     </Grid>
   );
