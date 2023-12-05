@@ -6,6 +6,7 @@ import SignUpInfo from './SignUpInfo';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux/reduxHooks';
 import ModalRegister from './ModalRegister/ModalRegister';
 import { checkInputValue } from '../store/actions/checkInputValue';
+import { changeValueInput } from '../store/actions/changeValueInput';
 
 const SignUpForms = () => {
   const { fields } = useAppSelector(state => state.signUpReducer);
@@ -23,6 +24,10 @@ const SignUpForms = () => {
 
   const closeModalWindow = () => setOpen(false);
 
+  const onChangeValue = (value: string, id: string) => {
+    dispath(changeValueInput(value, id));
+  };
+
   return (
     <Card>
       <SignUpInfo />
@@ -32,6 +37,7 @@ const SignUpForms = () => {
             id={fields.firstName.id}
             value={fields.firstName.value}
             label={fields.firstName.label}
+            onChange={onChangeValue}
             placeholder="Type your name"
             disabled={open}
             error={fields.firstName.error?.status}
@@ -41,6 +47,7 @@ const SignUpForms = () => {
             id={fields.lastName.id}
             value={fields.lastName.value}
             label={fields.lastName.label}
+            onChange={onChangeValue}
             placeholder="Type your last name"
             error={fields.lastName.error?.status}
             hint={fields.lastName.error?.message}

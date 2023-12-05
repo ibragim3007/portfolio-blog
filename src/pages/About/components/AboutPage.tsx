@@ -1,10 +1,14 @@
 import React from 'react';
+import AboutMain from '../../../modules/About';
+import Greetings from '../../../modules/greetings';
+import AppWidth from '../../../shared/layout/AppWidth';
 
 const AboutPage = () => {
   return (
-    <div>
-      <h1>About page</h1>
-    </div>
+    <AppWidth>
+      <Greetings />
+      <AboutMain />
+    </AppWidth>
   );
 };
 

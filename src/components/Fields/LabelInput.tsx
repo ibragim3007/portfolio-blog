@@ -1,9 +1,7 @@
+import { Stack } from '@mui/joy';
 import React from 'react';
 import { Input } from '../../shared/inputs/Input';
 import { Title } from '../../shared/typography/Title';
-import { Stack } from '@mui/joy';
-import { useAppDispatch } from '../../hooks/redux/reduxHooks';
-import { changeValueInput } from '../../modules/SignUpForms/store/actions/changeValueInput';
 
 interface LabelInputProps {
   id: string;
@@ -14,12 +12,22 @@ interface LabelInputProps {
   disabled?: boolean;
   error?: boolean;
   hint?: string;
+  onChange: (value: string, id: string) => void;
 }
 
-const LabelInput: React.FC<LabelInputProps> = ({ label, type, placeholder, value, id, disabled, error, hint }) => {
-  const dispath = useAppDispatch();
+const LabelInput: React.FC<LabelInputProps> = ({
+  label,
+  type,
+  placeholder,
+  value,
+  id,
+  disabled,
+  error,
+  hint,
+  onChange,
+}) => {
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispath(changeValueInput(e.target.value, id));
+    onChange(e.target.value, id);
   };
 
   return (

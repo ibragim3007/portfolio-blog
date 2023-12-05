@@ -13,7 +13,7 @@ const SignUpButton = () => {
         Then sign up as soon as you can! . Feel free to wander through the virtual corridors and discover the stories
         and projects that make up my creative journey.
       </Title>
-      <Grid container justifyContent="flex-end" style={{ marginRight: 50 }}>
+      <Grid container justifyContent="flex-end">
         <NavLink to={config.signup}>
           <Button endDecorator={<ArrowForwardIosIcon style={{ fontSize: 14 }} />}>Sign Up</Button>
         </NavLink>

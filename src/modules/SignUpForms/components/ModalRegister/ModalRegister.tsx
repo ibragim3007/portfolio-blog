@@ -7,6 +7,7 @@ import { Title } from '../../../../shared/typography/Title';
 import HiMessage from './HiMessage';
 import { checkInputValue } from '../../store/actions/checkInputValue';
 import ConfirmPassword from './ConfirmPassword';
+import { changeValueInput } from '../../store/actions/changeValueInput';
 
 interface ModalRegisterProps {
   open: boolean;
@@ -28,6 +29,10 @@ const ModalRegister: React.FC<ModalRegisterProps> = ({ open, onClose }) => {
     if (fields.email.value !== '') setConfirmingPassword(true);
   };
 
+  const onChangeValue = (value: string, id: string) => {
+    dispath(changeValueInput(value, id));
+  };
+
   return (
     <CModal open={open} onClose={onClose}>
       {confirmingPassword ? (
@@ -46,6 +51,7 @@ const ModalRegister: React.FC<ModalRegisterProps> = ({ open, onClose }) => {
               error={fields.email.error?.status}
               hint={fields.email.error?.message}
               type="email"
+              onChange={onChangeValue}
             />
             <Button onClick={clickContinue} type="submit">
               Continue

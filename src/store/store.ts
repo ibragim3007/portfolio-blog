@@ -1,8 +1,10 @@
+import { signInReducer } from './../modules/Login/store/signInForm';
 import { signUpReducer } from './../modules/SignUpForms/store/signUpSlice';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 const rootReducer = combineReducers({
   signUpReducer,
+  signInReducer,
 });
 
 export const setupStore = () => {

@@ -6,6 +6,7 @@ import LabelInput from '../../../../components/Fields/LabelInput';
 import BackButton from '../../../../components/BackButton/BackButton';
 import { checkInputValue } from '../../store/actions/checkInputValue';
 import { checkPassword } from '../../store/actions/helpers/checkPassword';
+import { changeValueInput } from '../../store/actions/changeValueInput';
 
 interface ConfirmPasswordProps {
   closeFunction: () => void;
@@ -23,6 +24,9 @@ const ConfirmPassword: React.FC<ConfirmPasswordProps> = ({ closeFunction }) => {
     const repeatPasswordMessage = isDifference ? 'Passwords must match' : passwordCheck;
     dispath(checkInputValue(repeatPassword.id, repeatPasswordMessage, passwordCheck !== '' || isDifference));
   };
+  const onChangeValue = (value: string, id: string) => {
+    dispath(changeValueInput(value, id));
+  };
 
   return (
     <Stack spacing={2}>
@@ -38,6 +42,7 @@ const ConfirmPassword: React.FC<ConfirmPasswordProps> = ({ closeFunction }) => {
         error={password.error?.status}
         hint={password.error?.message}
         type="password"
+        onChange={onChangeValue}
       />
       <LabelInput
         id={repeatPassword.id}
@@ -46,6 +51,7 @@ const ConfirmPassword: React.FC<ConfirmPasswordProps> = ({ closeFunction }) => {
         error={repeatPassword.error?.status}
         hint={repeatPassword.error?.message}
         type="password"
+        onChange={onChangeValue}
       />
       <Button onClick={signUpButtonClick}>Sign Up</Button>
     </Stack>
