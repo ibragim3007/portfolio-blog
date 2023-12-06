@@ -1,5 +1,5 @@
 import { Button, Grid, Stack } from '@mui/joy';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Title } from '../../../../shared/typography/Title';
 import { useAppDispatch, useAppSelector } from '../../../../hooks/redux/reduxHooks';
 import LabelInput from '../../../../components/Fields/LabelInput';
@@ -7,26 +7,54 @@ import BackButton from '../../../../components/BackButton/BackButton';
 import { checkInputValue } from '../../store/actions/checkInputValue';
 import { checkPassword } from '../../store/actions/helpers/checkPassword';
 import { changeValueInput } from '../../store/actions/changeValueInput';
+import { useMutation } from '@apollo/client';
+import { SignUp } from '../../graphql/SignUp';
+import { CreateUserInterface } from '../../graphql/interfaces/CreateUserInterface';
+import { TOKEN_STRING } from '../../../../constants/LocalStorageStrings';
 
 interface ConfirmPasswordProps {
   closeFunction: () => void;
 }
 
 const ConfirmPassword: React.FC<ConfirmPasswordProps> = ({ closeFunction }) => {
-  const { password, repeatPassword } = useAppSelector(state => state.signUpReducer.fields);
+  const { fields } = useAppSelector(state => state.signUpReducer);
   const dispath = useAppDispatch();
 
-  const signUpButtonClick = () => {
-    const passwordCheck = checkPassword(password.value);
-    dispath(checkInputValue(password.id, passwordCheck, passwordCheck !== ''));
-    const isDifference = password.value !== repeatPassword.value;
+  const [createUser, { data, loading }] = useMutation<{ addUser: { token: string } }, { data: CreateUserInterface }>(
+    SignUp,
+  );
+
+  const signUpButtonClick = async () => {
+    const passwordCheck = checkPassword(fields.password.value);
+    dispath(checkInputValue(fields.password.id, passwordCheck, passwordCheck !== ''));
+    const isDifference = fields.password.value !== fields.repeatPassword.value;
 
     const repeatPasswordMessage = isDifference ? 'Passwords must match' : passwordCheck;
-    dispath(checkInputValue(repeatPassword.id, repeatPasswordMessage, passwordCheck !== '' || isDifference));
+    dispath(checkInputValue(fields.repeatPassword.id, repeatPasswordMessage, passwordCheck !== '' || isDifference));
+
+    if (fields.password.value === fields.repeatPassword.value && fields.password.value !== '') {
+      await createUser({
+        variables: {
+          data: {
+            firstName: fields.firstName.value,
+            lastName: fields.lastName.value,
+            email: fields.email.value,
+            password: fields.password.value,
+          },
+        },
+      });
+    }
   };
   const onChangeValue = (value: string, id: string) => {
     dispath(changeValueInput(value, id));
   };
+
+  useEffect(() => {
+    if (data && !loading) {
+      localStorage.setItem(TOKEN_STRING, data.addUser.token);
+      window.location.reload();
+    }
+  }, [data, loading]);
 
   return (
     <Stack spacing={2}>
@@ -36,24 +64,24 @@ const ConfirmPassword: React.FC<ConfirmPasswordProps> = ({ closeFunction }) => {
       </Grid>
       <Title variant="subtitle">Create a password</Title>
       <LabelInput
-        id={password.id}
-        value={password.value}
-        label={password.label}
-        error={password.error?.status}
-        hint={password.error?.message}
-        type="password"
+        id={fields.password.id}
+        value={fields.password.value}
+        label={fields.password.label}
+        error={fields.password.error?.status}
+        hint={fields.password.error?.message}
         onChange={onChangeValue}
+        type="password"
       />
       <LabelInput
-        id={repeatPassword.id}
-        value={repeatPassword.value}
-        label={repeatPassword.label}
-        error={repeatPassword.error?.status}
-        hint={repeatPassword.error?.message}
-        type="password"
+        id={fields.repeatPassword.id}
+        value={fields.repeatPassword.value}
+        label={fields.repeatPassword.label}
+        error={fields.repeatPassword.error?.status}
+        hint={fields.repeatPassword.error?.message}
         onChange={onChangeValue}
+        type="password"
       />
-      <Button onClick={signUpButtonClick}>Sign Up</Button>
+      <Button onClick={() => void signUpButtonClick()}>Sign Up</Button>
     </Stack>
   );
 };
