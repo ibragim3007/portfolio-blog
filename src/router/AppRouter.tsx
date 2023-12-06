@@ -3,16 +3,15 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { MeInterface } from '../GraphQL/@client/interfaces/meInterface';
 import { ME } from '../GraphQL/@client/me';
+import { useAppDispatch } from '../hooks/redux/reduxHooks';
 import TheHeader from '../modules/header';
 import AboutPage from '../pages/About';
 import AuthPage from '../pages/AuthPage';
 import HomePage from '../pages/Home';
 import SignUpPage from '../pages/SignUp/components/SignUpPage';
 import { WrapperApp } from '../shared/layout/WrapperApp';
-import { config } from './routerConfig';
-import { useAppDispatch } from '../hooks/redux/reduxHooks';
 import { setMeAction } from '../store/me/actions/setMeAction';
-import ClientProvider from '../security/ClientProvider';
+import { config } from './routerConfig';
 
 const AppRoter: React.FC = () => {
   const { data, loading } = useQuery<{ me: MeInterface }>(ME);

@@ -14,7 +14,7 @@ interface PostCardProps {
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const me = useAppSelector(state => state.meReducer.me);
 
-  const isLightUp = me ? post.likedBy.map(post => post.userId).includes(me.id) : false;
+  const lightUp = me ? post.likedBy.some(post => post.userId === me.id) : false;
 
   return (
     <Card style={{ width: '100%' }}>
@@ -23,7 +23,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         <ContentCard content={post.article} />
       </Stack>
       <Grid container justifyContent="flex-end">
-        <LikeButton lightUp={isLightUp} amountOfLikes={post.likedBy.length} />
+        <LikeButton lightUp={lightUp} amountOfLikes={post.likedBy.length} />
       </Grid>
     </Card>
   );

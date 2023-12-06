@@ -7,7 +7,6 @@ import { Card } from '../../../shared/layout/Card';
 import { useAppDispatch } from '../../../hooks/redux/reduxHooks';
 import { logoutAction } from '../../../store/me/actions/logoutAction';
 import ClientProvider from '../../../security/ClientProvider';
-import { Role } from '../../../GraphQL/@client/interfaces/meInterface';
 
 const TheHeader = () => {
   const dispath = useAppDispatch();

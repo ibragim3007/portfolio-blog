@@ -12,7 +12,8 @@ interface ClientProviderProps {
 const ClientProvider: React.FC<ClientProviderProps> = ({ children, role = 'USER', isShow = true, unAuthorizaton }) => {
   const me = useAppSelector(state => state.meReducer.me);
 
-  if (!me && unAuthorizaton) return <>{children}</>;
+  if (me?.role === 'ADMIN') return <>{children}</>;
+  else if (!me && unAuthorizaton) return <>{children}</>;
   else if (me?.role === role && isShow) return <>{children}</>;
   else return null;
 };
