@@ -1,3 +1,4 @@
+import { snackBarReducer } from './snackbar/actions/snackBarSlice';
 import { meReducer } from './me/meSlice';
 import { signInReducer } from './../modules/Login/store/signInForm';
 import { signUpReducer } from './../modules/SignUpForms/store/signUpSlice';
@@ -7,6 +8,7 @@ const rootReducer = combineReducers({
   signUpReducer,
   signInReducer,
   meReducer,
+  snackBarReducer,
 });
 
 export const setupStore = () => {

@@ -11,7 +11,6 @@ interface LikeButtonProps {
 }
 
 const LikeButton: React.FC<LikeButtonProps> = ({ amountOfLikes, onClick, lightUp, loading }) => {
-  console.log(lightUp);
   return (
     <Button
       variant="outlined"

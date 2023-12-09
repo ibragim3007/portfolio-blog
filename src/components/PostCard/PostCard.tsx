@@ -2,22 +2,24 @@ import { useLazyQuery, useMutation } from '@apollo/client';
 import { Grid, Stack } from '@mui/joy';
 import React, { useEffect, useState } from 'react';
 import { PostResponseInterface } from '../../GraphQL/@post/interfaces/PostResponseInterface';
-import { useAppSelector } from '../../hooks/redux/reduxHooks';
+import { GET_POST_BY_ID } from '../../GraphQL/@post/postById';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux/reduxHooks';
 import { Card } from '../../shared/layout/Card';
+import { snackBarActions } from '../../store/snackbar/actions/snackBarSlice';
 import LikeButton from '../LikeButton/LikeButton';
 import ContentCard from './ContentCard';
 import { HeaderCard } from './HeaderCard';
 import { RateReqInterface } from './graphql/interface/rateReqInterface';
 import { RATE_POST } from './graphql/ratePost';
-import { GET_POST_BY_ID } from '../../GraphQL/@post/postById';
 
 interface PostCardProps {
   post: PostResponseInterface;
 }
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
+  const dispath = useAppDispatch();
   const me = useAppSelector(state => state.meReducer.me);
-  const [rate, { loading }] = useMutation<{ ratePost: boolean }, { data: RateReqInterface }>(RATE_POST);
+  const [rate, { loading, error }] = useMutation<{ ratePost: boolean }, { data: RateReqInterface }>(RATE_POST);
   const [getUpdatedPost, { data: udpatePostData, loading: loadingUpdatedPost }] = useLazyQuery<
     { getPostById: PostResponseInterface },
     { data: { id: string } }
@@ -55,6 +57,18 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
       setLocalPost(udpatePostData.getPostById);
     }
   }, [loadingUpdatedPost, udpatePostData]);
+
+  useEffect(() => {
+    if (error) {
+      dispath(
+        snackBarActions.setSnack({
+          open: true,
+          message: error.message,
+          color: 'danger',
+        }),
+      );
+    }
+  }, [dispath, error]);
 
   return (
     <Card style={{ width: '100%' }}>

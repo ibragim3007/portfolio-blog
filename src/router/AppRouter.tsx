@@ -12,6 +12,7 @@ import SignUpPage from '../pages/SignUp/components/SignUpPage';
 import { WrapperApp } from '../shared/layout/WrapperApp';
 import { setMeAction } from '../store/me/actions/setMeAction';
 import { config } from './routerConfig';
+import SnackbarCustom from '../shared/snackbar/SnackbarCustom';
 
 const AppRoter: React.FC = () => {
   const { data, loading } = useQuery<{ me: MeInterface }>(ME);
@@ -34,6 +35,7 @@ const AppRoter: React.FC = () => {
           <Route path={config.signup} element={<SignUpPage />} />
           <Route path="*" element={<Navigate to={config.home} />} />
         </Routes>
+        <SnackbarCustom />
       </BrowserRouter>
     </WrapperApp>
   );
