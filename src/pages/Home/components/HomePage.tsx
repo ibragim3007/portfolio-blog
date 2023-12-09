@@ -5,13 +5,19 @@ import AppWidth from '../../../shared/layout/AppWidth';
 import Posts from '../../../modules/Posts';
 import { Grid } from '@mui/joy';
 import SignUpButton from '../../../modules/SignUp';
+import ClientProvider from '../../../security/ClientProvider';
 
-const HomePage = () => {
+import AddNewPost from '../../../modules/AddPostForm';
+
+const HomePage: React.FC = () => {
   return (
     <AppWidth>
       <Grid container gap={3}>
         <SignUpButton />
         <Greetings />
+        <ClientProvider role={'ADMIN'}>
+          <AddNewPost />
+        </ClientProvider>
         <Posts />
       </Grid>
     </AppWidth>

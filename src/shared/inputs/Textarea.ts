@@ -2,12 +2,12 @@ import { detectColorInput } from './helpers/detectColorInput';
 import styled from 'styled-components';
 import { InputColorType } from './interface/ColorVariants';
 
-interface InputProps {
+interface TextareaProps {
   fullWidth?: boolean;
   color?: InputColorType;
 }
 
-export const Input = styled.input<InputProps>`
+export const Textarea = styled.textarea<TextareaProps>`
   border-radius: var(--border-radius);
   padding: 13px;
   font-size: 16px;
@@ -17,11 +17,14 @@ export const Input = styled.input<InputProps>`
   outline: none;
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
   color: var(--text-color);
-
+  resize: vertical;
+  max-height: 600px;
+  min-height: 90px;
   transition: 0.1s ease;
   &:focus {
     filter: brightness(110%);
     transform: scale(1.01);
+
     outline: 2px solid var(--link-color);
   }
 `;
