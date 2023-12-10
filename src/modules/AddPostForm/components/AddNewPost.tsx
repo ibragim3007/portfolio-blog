@@ -2,7 +2,7 @@ import React from 'react';
 import Form from './Form/Form';
 import { Card } from '../../../shared/layout/Card';
 
-const AddNewPost = () => {
+const AddNewPost: React.FC = () => {
   return (
     <Card style={{ padding: 20, width: '100%' }}>
       <Form />

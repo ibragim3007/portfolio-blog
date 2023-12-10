@@ -18,6 +18,9 @@ const addPostSlice = createSlice({
     changeValue(state, action: PayloadAction<WrapperForFieldValue<AddPostInterface>>) {
       state.fields = action.payload;
     },
+    toDefaultValue(state) {
+      state.fields = defaultAddPostFields;
+    },
   },
 });
 
