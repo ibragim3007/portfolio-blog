@@ -7,7 +7,7 @@ import { IMAGE_HEIGHT } from './constants/StyleConsts';
 
 const Typescript = () => {
   return (
-    <ItemCardLabel label={'Typescript'}>
+    <ItemCardLabel href={'https://www.typescriptlang.org/'} label={'Typescript'}>
       <Image src={TypeScriptIcon} height={IMAGE_HEIGHT} />
     </ItemCardLabel>
   );

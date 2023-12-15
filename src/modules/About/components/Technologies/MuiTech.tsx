@@ -7,7 +7,7 @@ import { IMAGE_HEIGHT } from './constants/StyleConsts';
 
 const MuiTech = () => {
   return (
-    <ItemCardLabel label={'MUI'}>
+    <ItemCardLabel href="https://mui.com" label={'MUI'}>
       <Image src={MuiIcon} height={IMAGE_HEIGHT} />
     </ItemCardLabel>
   );

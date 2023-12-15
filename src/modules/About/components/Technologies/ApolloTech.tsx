@@ -7,7 +7,7 @@ import { IMAGE_HEIGHT } from './constants/StyleConsts';
 
 const ApolloTech = () => {
   return (
-    <ItemCardLabel label={'GraphQL'}>
+    <ItemCardLabel href={'https://graphql.org/'} label={'GraphQL'}>
       <Image src={GraphQL} height={IMAGE_HEIGHT} />
     </ItemCardLabel>
   );

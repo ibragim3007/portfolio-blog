@@ -6,7 +6,7 @@ import { IMAGE_HEIGHT } from './constants/StyleConsts';
 
 const ReactTech: React.FC = () => {
   return (
-    <ItemCardLabel label="React">
+    <ItemCardLabel href={'https://react.dev/'} label="React">
       <Image height={IMAGE_HEIGHT} src={ReactIcon} />
     </ItemCardLabel>
   );

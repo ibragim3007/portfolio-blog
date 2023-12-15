@@ -6,20 +6,22 @@ import ReactTech from './Technologies/ReactTech';
 import Typescript from './Technologies/Typescript';
 import MuiTech from './Technologies/MuiTech';
 import ApolloTech from './Technologies/ApolloTech';
+import CardWrapper from '../../../components/Cards/CardWrapper';
+import MyGitHub from './MyGitHub/MyGitHub';
 
 const AboutMain = () => {
   return (
     <Grid>
       <Card>
-        <Stack gap={3}>
+        <Stack gap={5}>
           <Title variant="text">What technologies did this site use?</Title>
-          <Title variant="title">Frontend</Title>
-          <Grid container gap={3}>
+          <CardWrapper label="Frontend">
             <ReactTech />
             <Typescript />
             <MuiTech />
             <ApolloTech />
-          </Grid>
+            <MyGitHub />
+          </CardWrapper>
         </Stack>
       </Card>
     </Grid>
