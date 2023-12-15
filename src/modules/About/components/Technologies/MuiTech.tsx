@@ -1,0 +1,16 @@
+import React from 'react';
+import ItemCardLabel from '../../../../components/Cards/ItemCardLabel';
+
+import MuiIcon from '../../../../assets/mui-logo.png';
+import { Image } from '../../../../shared/image/Image';
+import { IMAGE_HEIGHT } from './constants/StyleConsts';
+
+const MuiTech = () => {
+  return (
+    <ItemCardLabel label={'MUI'}>
+      <Image src={MuiIcon} height={IMAGE_HEIGHT} />
+    </ItemCardLabel>
+  );
+};
+
+export default MuiTech;
