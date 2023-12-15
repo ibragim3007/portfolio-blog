@@ -7,6 +7,6 @@ interface CardProps {
 export const ItemCard = styled.div<CardProps>`
   background-color: rgb(var(--background-rgb));
   border-radius: var(--border-radius);
-  border: 1px solid var(--text-color);
+  border: 1px solid var(--border-color-high);
   cursor: pointer;
 `;

@@ -24,7 +24,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({ children, label }) => {
         <ItemCard style={{ position: 'absolute', left: 30, top: -18, padding: '7px 13px' }}>
           <Title variant="title">{label}</Title>
         </ItemCard>
-        <Grid container justifyContent="center" gap={5}>
+        <Grid container justifyContent="center" gap={4}>
           {children}
         </Grid>
       </Grid>

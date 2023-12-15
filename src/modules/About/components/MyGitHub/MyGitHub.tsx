@@ -4,15 +4,19 @@ import GitHub from '../../../../assets/gitHub.png';
 import { Image } from '../../../../shared/image/Image';
 import { ItemCard } from '../../../../shared/layout/ItemCard';
 import { Title } from '../../../../shared/typography/Title';
-import { FRONT_REPO_OF_THIS_PROJECT } from '../../../../constants/LINKS';
 
-const MyGitHub: React.FC = () => {
+interface MyGitHubProps {
+  link: string;
+  label: string;
+}
+
+const MyGitHub: React.FC<MyGitHubProps> = ({ link, label }) => {
   return (
-    <a href={FRONT_REPO_OF_THIS_PROJECT} target="_blank" rel="noreferrer">
+    <a href={link} target="_blank" rel="noreferrer">
       <ItemCard>
         <Grid container justifyContent="center" padding={4} flexDirection="column" alignItems="center" gap={3}>
           <Image height={100} src={GitHub} />
-          <Title variant="title">Frontend repository</Title>
+          <Title variant="title">{label}</Title>
         </Grid>
       </ItemCard>
     </a>
