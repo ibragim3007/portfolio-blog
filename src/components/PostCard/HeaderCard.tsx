@@ -2,6 +2,7 @@ import { Grid } from '@mui/joy';
 import React from 'react';
 import { Title } from '../../shared/typography/Title';
 import Avatar from '../Avatar/Avatar';
+import { getTimeUSA } from '../../helpers/utils/ToTime';
 
 interface HeaderCardProps {
   title: string;
@@ -16,7 +17,7 @@ export const HeaderCard: React.FC<HeaderCardProps> = ({ title, createDate }) => 
         <Title variant="title">{title}</Title>
       </Grid>
       <Grid>
-        <Title variant="subtitle">{createDate.toString()}</Title>
+        <Title variant="subtitle">{getTimeUSA(createDate)}</Title>
       </Grid>
     </Grid>
   );
