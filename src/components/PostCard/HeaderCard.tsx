@@ -1,8 +1,10 @@
-import { Grid } from '@mui/joy';
+import { Dropdown, Grid, Menu, MenuButton, MenuItem } from '@mui/joy';
+import IconButton from '@mui/joy/IconButton';
 import React from 'react';
 import { Title } from '../../shared/typography/Title';
 import Avatar from '../Avatar/Avatar';
 import { getTimeUSA } from '../../helpers/utils/ToTime';
+import MoreVert from '@mui/icons-material/MoreVert';
 
 interface HeaderCardProps {
   title: string;
@@ -16,8 +18,17 @@ export const HeaderCard: React.FC<HeaderCardProps> = ({ title, createDate }) => 
         <Avatar url="https://sm.ign.com/ign_ap/cover/a/avatar-gen/avatar-generations_hugw.jpg" />
         <Title variant="title">{title}</Title>
       </Grid>
-      <Grid>
+      <Grid container alignItems="center" gap={2}>
         <Title variant="subtitle">{getTimeUSA(createDate)}</Title>
+        <Dropdown>
+          <MenuButton slotProps={{ root: { variant: 'outlined', color: 'neutral' } }} slots={{ root: IconButton }}>
+            <MoreVert />
+          </MenuButton>
+          <Menu>
+            <MenuItem color="danger">Delete</MenuItem>
+            <MenuItem>Edit</MenuItem>
+          </Menu>
+        </Dropdown>
       </Grid>
     </Grid>
   );
