@@ -63,5 +63,9 @@ export const useRateCard = (post: PostResponseInterface) => {
   return {
     clickRateButton,
     lightUp,
+    loading,
+    error,
+    localPost,
+    loadingUpdatedPost,
   };
 };

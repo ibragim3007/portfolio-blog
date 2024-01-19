@@ -5,13 +5,14 @@ import { useQuery } from '@apollo/client';
 import { GET_ALL_POSTS } from '../../../GraphQL/@post/getAllPosts';
 import { PostResponseInterface } from '../../../GraphQL/@post/interfaces/PostResponseInterface';
 import LoadingWrapper from '../../../components/Loading/LoadingWrapper';
+import MultipleSkeletonCards from '../../../components/PostCard/SkeletonCard/MultipleSkeletonCards';
 
 const Posts = () => {
   const { data, loading } = useQuery<{ getAllPosts: PostResponseInterface[] }>(GET_ALL_POSTS);
 
   return (
     <Grid container gap={2}>
-      <LoadingWrapper loading={loading}>
+      <LoadingWrapper loading={loading} loadingNode={<MultipleSkeletonCards />}>
         {data?.getAllPosts.map(post => {
           return <PostCard post={post} key={post.id} />;
         })}

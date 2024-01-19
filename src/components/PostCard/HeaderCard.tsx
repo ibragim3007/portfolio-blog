@@ -5,6 +5,7 @@ import { Title } from '../../shared/typography/Title';
 import Avatar from '../Avatar/Avatar';
 import { getTimeUSA } from '../../helpers/utils/ToTime';
 import MoreVert from '@mui/icons-material/MoreVert';
+import { useAppSelector } from '../../hooks/redux/reduxHooks';
 
 interface HeaderCardProps {
   title: string;
@@ -12,6 +13,7 @@ interface HeaderCardProps {
 }
 
 export const HeaderCard: React.FC<HeaderCardProps> = ({ title, createDate }) => {
+  const me = useAppSelector(state => state.meReducer.me);
   return (
     <Grid container justifyContent="space-between" alignItems="center">
       <Grid container alignItems="center" gap={3}>
@@ -20,15 +22,17 @@ export const HeaderCard: React.FC<HeaderCardProps> = ({ title, createDate }) => 
       </Grid>
       <Grid container alignItems="center" gap={2}>
         <Title variant="subtitle">{getTimeUSA(createDate)}</Title>
-        <Dropdown>
-          <MenuButton slotProps={{ root: { variant: 'outlined', color: 'neutral' } }} slots={{ root: IconButton }}>
-            <MoreVert />
-          </MenuButton>
-          <Menu>
-            <MenuItem color="danger">Delete</MenuItem>
-            <MenuItem>Edit</MenuItem>
-          </Menu>
-        </Dropdown>
+        {me?.role === 'ADMIN' && (
+          <Dropdown>
+            <MenuButton slotProps={{ root: { variant: 'outlined', color: 'neutral' } }} slots={{ root: IconButton }}>
+              <MoreVert />
+            </MenuButton>
+            <Menu>
+              <MenuItem color="danger">Delete</MenuItem>
+              <MenuItem>Edit</MenuItem>
+            </Menu>
+          </Dropdown>
+        )}
       </Grid>
     </Grid>
   );
