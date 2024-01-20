@@ -7,7 +7,7 @@ import ClientProvider from '../../../security/ClientProvider';
 const NavLinks = () => {
   return (
     <Grid container gap={2}>
-      <LinkItem to={config.home}>Home</LinkItem>
+      <LinkItem to={config.feed}>Feed</LinkItem>
       <LinkItem to={config.about}>About</LinkItem>
       <ClientProvider isShow={false} unAuthorizaton>
         <LinkItem to={config.admin}>Admin</LinkItem>

@@ -1,6 +1,5 @@
 import React, { PropsWithChildren } from 'react';
 import { Title } from '../../shared/typography/Title';
-import MultipleSkeletonCards from '../PostCard/SkeletonCard/MultipleSkeletonCards';
 
 interface LoadingWrapperProps extends PropsWithChildren {
   loading?: boolean;
@@ -8,7 +7,7 @@ interface LoadingWrapperProps extends PropsWithChildren {
 }
 
 const LoadingWrapper: React.FC<LoadingWrapperProps> = ({ loading, children, loadingNode }) => {
-  if (loading) return <>{loadingNode ? <MultipleSkeletonCards /> : <Title variant="title">Loading...</Title>}</>;
+  if (loading) return <>{loadingNode ? loadingNode : <Title variant="title">Loading...</Title>}</>;
   else return <>{children}</>;
 };
 

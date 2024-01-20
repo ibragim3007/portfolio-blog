@@ -1,6 +1,7 @@
 export const config = {
-  home: '/home',
+  feed: '/feed',
   about: '/about',
   admin: '/admin',
   signup: '/signup',
+  post: '/post',
 };

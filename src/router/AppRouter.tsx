@@ -10,9 +10,9 @@ import AuthPage from '../pages/AuthPage';
 import HomePage from '../pages/Home';
 import SignUpPage from '../pages/SignUp/components/SignUpPage';
 import { WrapperApp } from '../shared/layout/WrapperApp';
+import SnackbarCustom from '../shared/snackbar/SnackbarCustom';
 import { setMeAction } from '../store/me/actions/setMeAction';
 import { config } from './routerConfig';
-import SnackbarCustom from '../shared/snackbar/SnackbarCustom';
 
 const AppRoter: React.FC = () => {
   const { data, loading } = useQuery<{ me: MeInterface }>(ME);
@@ -29,11 +29,14 @@ const AppRoter: React.FC = () => {
       <BrowserRouter>
         <TheHeader />
         <Routes>
-          <Route path={config.home} element={<HomePage />} />
+          <Route path={config.feed} element={<HomePage />} />
+          <Route path={config.post}>
+            <Route path={':id'} element={<h1>HEllo world</h1>} />
+          </Route>
           <Route path={config.about} element={<AboutPage />} />
           <Route path={config.admin} element={<AuthPage />} />
           <Route path={config.signup} element={<SignUpPage />} />
-          <Route path="*" element={<Navigate to={config.home} />} />
+          <Route path="*" element={<Navigate to={config.feed} />} />
         </Routes>
         <SnackbarCustom />
       </BrowserRouter>

@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
     <AppWidth>
       <Grid container gap={3}>
         <SignUpButton />
-        <Greetings />
+        {/* <Greetings /> */}
         <ClientProvider role={'ADMIN'}>
           <AddNewPost />
         </ClientProvider>

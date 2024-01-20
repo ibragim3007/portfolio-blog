@@ -9,7 +9,7 @@ type PrivateRouteProps = RouteProps & {
 };
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ element, roles, ...rest }) => {
-  const routeElement = roles.includes('ADMIN') ? element : <Navigate to={config.home} />;
+  const routeElement = roles.includes('ADMIN') ? element : <Navigate to={config.feed} />;
   return <Route {...rest} element={routeElement} />;
 };
 

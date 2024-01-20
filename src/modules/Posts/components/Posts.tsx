@@ -1,20 +1,21 @@
 import React from 'react';
-import PostCard from '../../../components/PostCard/PostCard';
-import { Grid } from '@mui/joy';
 import { useQuery } from '@apollo/client';
-import { GET_ALL_POSTS } from '../../../GraphQL/@post/getAllPosts';
-import { PostResponseInterface } from '../../../GraphQL/@post/interfaces/PostResponseInterface';
+import { Grid } from '@mui/joy';
+import { GET_PREVIEW_POSTS } from '../../../GraphQL/@post/getPreviewPosts';
 import LoadingWrapper from '../../../components/Loading/LoadingWrapper';
-import MultipleSkeletonCards from '../../../components/PostCard/SkeletonCard/MultipleSkeletonCards';
+
+import { PreviewCardInterface } from '../../../components/PreviewCard/graphql/interface/PreviewCardInterface';
+import PreviewCard from '../../../components/PreviewCard/PreviewCard';
+import MultipleSkeletonCards from '../../../components/PreviewCard/SkeletonCard/MultipleSkeletonCards';
 
 const Posts = () => {
-  const { data, loading } = useQuery<{ getAllPosts: PostResponseInterface[] }>(GET_ALL_POSTS);
+  const { data, loading } = useQuery<{ getAllPosts: PreviewCardInterface[] }>(GET_PREVIEW_POSTS);
 
   return (
     <Grid container gap={2}>
       <LoadingWrapper loading={loading} loadingNode={<MultipleSkeletonCards />}>
         {data?.getAllPosts.map(post => {
-          return <PostCard post={post} key={post.id} />;
+          return <PreviewCard post={post} key={post.id} />;
         })}
       </LoadingWrapper>
     </Grid>
