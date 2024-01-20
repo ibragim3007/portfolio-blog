@@ -9,7 +9,9 @@ import PreviewCard from '../../../components/PreviewCard/PreviewCard';
 import MultipleSkeletonCards from '../../../components/PreviewCard/SkeletonCard/MultipleSkeletonCards';
 
 const Posts = () => {
-  const { data, loading } = useQuery<{ getAllPosts: PreviewCardInterface[] }>(GET_PREVIEW_POSTS);
+  const { data, loading } = useQuery<{ getAllPosts: PreviewCardInterface[] }>(GET_PREVIEW_POSTS, {
+    fetchPolicy: 'network-only',
+  });
 
   return (
     <Grid container gap={2}>

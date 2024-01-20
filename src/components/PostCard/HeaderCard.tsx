@@ -20,7 +20,12 @@ export const HeaderCard: React.FC<HeaderCardProps> = ({ post }) => {
     <Grid container justifyContent="space-between" alignItems="center">
       <Grid container alignItems="center" gap={3}>
         <NavLink to={`${config.user}/${post.author.id}`}>
-          <Avatar url="https://sm.ign.com/ign_ap/cover/a/avatar-gen/avatar-generations_hugw.jpg" />
+          <Grid gap={1} container flexDirection="column" alignItems="center" justifyContent="center">
+            <Avatar url="https://sm.ign.com/ign_ap/cover/a/avatar-gen/avatar-generations_hugw.jpg" />
+            <Title variant="subtitle" style={{ color: '#8e8e8e', maxWidth: 50 }}>
+              {post.author.lastName}
+            </Title>
+          </Grid>
         </NavLink>
         <Grid container flexDirection="column" gap={1}>
           <Title variant="title">{post.title}</Title>

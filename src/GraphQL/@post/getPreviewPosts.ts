@@ -5,6 +5,8 @@ export const GET_PREVIEW_POSTS = gql`
     getAllPosts {
       id
       title
+      article
+      createDate
       author {
         id
         firstName

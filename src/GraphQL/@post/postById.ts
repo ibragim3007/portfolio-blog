@@ -7,6 +7,7 @@ export const GET_POST_BY_ID = gql`
       title
       article
       author {
+        id
         firstName
         lastName
       }

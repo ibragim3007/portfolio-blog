@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { Title } from '../../shared/typography/Title';
+import LoadingCircle from './LoadingCircle';
 
 interface LoadingWrapperProps extends PropsWithChildren {
   loading?: boolean;
@@ -7,7 +7,7 @@ interface LoadingWrapperProps extends PropsWithChildren {
 }
 
 const LoadingWrapper: React.FC<LoadingWrapperProps> = ({ loading, children, loadingNode }) => {
-  if (loading) return <>{loadingNode ? loadingNode : <Title variant="title">Loading...</Title>}</>;
+  if (loading) return <>{loadingNode ? loadingNode : <LoadingCircle />}</>;
   else return <>{children}</>;
 };
 

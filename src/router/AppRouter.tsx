@@ -14,6 +14,7 @@ import SnackbarCustom from '../shared/snackbar/SnackbarCustom';
 import { setMeAction } from '../store/me/actions/setMeAction';
 import { config } from './routerConfig';
 import PostPage from '../pages/PostPage';
+import UserPage from '../pages/UserPage/components/UserPage';
 
 const AppRoter: React.FC = () => {
   const { data, loading } = useQuery<{ me: MeInterface }>(ME);
@@ -33,6 +34,9 @@ const AppRoter: React.FC = () => {
           <Route path={config.feed} element={<HomePage />} />
           <Route path={config.post}>
             <Route path={':postId'} element={<PostPage />} />
+          </Route>
+          <Route path={config.user}>
+            <Route path={':userId'} element={<UserPage />} />
           </Route>
           <Route path={config.about} element={<AboutPage />} />
           <Route path={config.admin} element={<AuthPage />} />
