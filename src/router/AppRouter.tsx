@@ -13,6 +13,7 @@ import { WrapperApp } from '../shared/layout/WrapperApp';
 import SnackbarCustom from '../shared/snackbar/SnackbarCustom';
 import { setMeAction } from '../store/me/actions/setMeAction';
 import { config } from './routerConfig';
+import PostPage from '../pages/PostPage';
 
 const AppRoter: React.FC = () => {
   const { data, loading } = useQuery<{ me: MeInterface }>(ME);
@@ -31,7 +32,7 @@ const AppRoter: React.FC = () => {
         <Routes>
           <Route path={config.feed} element={<HomePage />} />
           <Route path={config.post}>
-            <Route path={':id'} element={<h1>HEllo world</h1>} />
+            <Route path={':postId'} element={<PostPage />} />
           </Route>
           <Route path={config.about} element={<AboutPage />} />
           <Route path={config.admin} element={<AuthPage />} />

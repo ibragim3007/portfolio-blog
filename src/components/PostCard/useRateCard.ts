@@ -10,7 +10,7 @@ import { RATE_POST } from './graphql/ratePost';
 export const useRateCard = (post: PostResponseInterface) => {
   const [localPost, setLocalPost] = useState(post);
   const me = useAppSelector(state => state.meReducer.me);
-  const [lightUp, setLightUp] = useState(me ? localPost.likedBy.some(post => post.userId === me.id) : false);
+  const [lightUp, setLightUp] = useState(me ? localPost?.likedBy.some(post => post.userId === me.id) : false);
 
   const dispath = useAppDispatch();
   const [rate, { loading, error }] = useMutation<{ ratePost: boolean }, { data: RateReqInterface }>(RATE_POST);
@@ -22,24 +22,27 @@ export const useRateCard = (post: PostResponseInterface) => {
   });
 
   const clickRateButton = async () => {
-    await rate({
-      variables: {
-        data: {
-          postId: localPost.id,
+    if (localPost)
+      await rate({
+        variables: {
+          data: {
+            postId: localPost.id,
+          },
         },
-      },
-    });
+      });
 
-    const updatePost = await getUpdatedPost({
-      variables: {
-        data: {
-          id: post.id,
+    if (post) {
+      const updatePost = await getUpdatedPost({
+        variables: {
+          data: {
+            id: post.id,
+          },
         },
-      },
-    });
+      });
 
-    if (updatePost.data?.getPostById)
-      setLightUp(me ? updatePost.data?.getPostById.likedBy.some(post => post.userId === me.id) : false);
+      if (updatePost.data?.getPostById)
+        setLightUp(me ? updatePost.data?.getPostById.likedBy.some(post => post.userId === me.id) : false);
+    }
   };
 
   useEffect(() => {

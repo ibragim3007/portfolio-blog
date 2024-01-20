@@ -6,6 +6,7 @@ export const GET_PREVIEW_POSTS = gql`
       id
       title
       author {
+        id
         firstName
         lastName
       }
