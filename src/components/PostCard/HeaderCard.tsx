@@ -13,9 +13,10 @@ import { config } from '../../router/routerConfig';
 
 interface HeaderCardProps {
   post: Omit<PostResponseInterface, 'article'>;
+  showTools?: boolean;
 }
 
-export const HeaderCard: React.FC<HeaderCardProps> = ({ post }) => {
+export const HeaderCard: React.FC<HeaderCardProps> = ({ post, showTools }) => {
   return (
     <Grid container justifyContent="space-between" alignItems="center">
       <Grid container alignItems="center" gap={3}>
@@ -36,7 +37,7 @@ export const HeaderCard: React.FC<HeaderCardProps> = ({ post }) => {
       </Grid>
       <Grid container alignItems="center" gap={2}>
         <Title variant="subtitle">{getTimeUSA(post.createDate)}</Title>
-        <ClientProvider isShow={false}>
+        <ClientProvider role="USER" isShow={showTools}>
           <Dropdown>
             <MenuButton slotProps={{ root: { variant: 'outlined', color: 'neutral' } }} slots={{ root: IconButton }}>
               <MoreVert />

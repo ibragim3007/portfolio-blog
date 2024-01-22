@@ -6,8 +6,10 @@ import { PostResponseInterface } from '../../GraphQL/@post/interfaces/PostRespon
 import { useParams } from 'react-router-dom';
 import { Title } from '../../shared/typography/Title';
 import LoadingCircle from '../Loading/LoadingCircle';
+import { useAppSelector } from '../../hooks/redux/reduxHooks';
 
 const PostModule = () => {
+  const { me } = useAppSelector(state => state.meReducer);
   const { postId } = useParams();
   const [getPostById, { data, loading, error }] = useLazyQuery<
     { getPostById: PostResponseInterface },
@@ -27,9 +29,10 @@ const PostModule = () => {
 
   if (loading) return <LoadingCircle />;
   if (!data) return <Title>No data</Title>;
-  if (error) return <Title>Error</Title>;
+  if (error) return <Title>{error.message}</Title>;
 
-  return <PostCard post={data.getPostById} />;
+  const isMyPost = me?.id === data?.getPostById.author.id;
+  return <PostCard isMyPost={isMyPost} post={data.getPostById} />;
 };
 
 export default PostModule;

@@ -1,11 +1,9 @@
 import React from 'react';
 
-import Greetings from '../../../modules/greetings';
-import AppWidth from '../../../shared/layout/AppWidth';
-import Posts from '../../../modules/Posts';
 import { Grid } from '@mui/joy';
-import SignUpButton from '../../../modules/SignUp';
+import Posts from '../../../modules/Posts';
 import ClientProvider from '../../../security/ClientProvider';
+import AppWidth from '../../../shared/layout/AppWidth';
 
 import AddNewPost from '../../../modules/AddPostForm';
 
@@ -13,7 +11,7 @@ const HomePage: React.FC = () => {
   return (
     <AppWidth>
       <Grid container gap={3}>
-        <SignUpButton />
+        {/* <SignUpButton /> */}
         {/* <Greetings /> */}
         <ClientProvider role={'ADMIN'}>
           <AddNewPost />

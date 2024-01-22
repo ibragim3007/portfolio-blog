@@ -10,4 +10,8 @@ export const Card = styled.div<CardProps>`
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   transition: 0.3s ease;
+
+  :hover {
+    filter: brightness(1.1);
+  }
 `;
