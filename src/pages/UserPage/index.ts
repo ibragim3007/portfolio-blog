@@ -1,3 +1,3 @@
-import UserPage from './components/UserPage';
+import LazyUserPage from './LazyUserPage';
 
-export default UserPage;
+export default LazyUserPage;

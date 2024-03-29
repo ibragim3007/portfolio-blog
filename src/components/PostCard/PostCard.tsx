@@ -5,7 +5,7 @@ import { Card } from '../../shared/ui/layout/Card';
 import LikeButton from '../LikeButton/LikeButton';
 import ContentCard from './ContentCard';
 import { HeaderCard } from './HeaderCard';
-import { useRateCard } from './useRateCard';
+import { useRateCard } from '../../shared/hooks/entities/post/useRateCard';
 
 interface PostCardProps {
   post: PostResponseInterface;

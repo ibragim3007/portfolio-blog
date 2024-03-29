@@ -1,11 +1,11 @@
 import { useLazyQuery, useMutation } from '@apollo/client';
 import { useEffect, useState } from 'react';
-import { PostResponseInterface } from '../../shared/graphQL/@post/interface/PostResponseInterface';
-import { GET_POST_BY_ID } from '../../shared/graphQL/@post/postById';
-import { useAppDispatch, useAppSelector } from '../../shared/hooks/redux/reduxHooks';
-import { snackBarActions } from '../../shared/store/snackbar/snackBarSlice';
-import { RateReqInterface } from './graphql/interface/rateReqInterface';
-import { RATE_POST } from './graphql/ratePost';
+import { PostResponseInterface } from '../../../graphQL/@post/interface/PostResponseInterface';
+import { GET_POST_BY_ID } from '../../../graphQL/@post/postById';
+import { useAppDispatch, useAppSelector } from '../../redux/reduxHooks';
+import { snackBarActions } from '../../../store/snackbar/snackBarSlice';
+import { RateReqInterface } from '../../../../components/PostCard/graphql/interface/rateReqInterface';
+import { RATE_POST } from '../../../../components/PostCard/graphql/ratePost';
 import { Inform } from '@/shared/service/log/log.service';
 
 export const useRateCard = (post: PostResponseInterface) => {

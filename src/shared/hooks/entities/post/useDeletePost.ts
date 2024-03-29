@@ -1,3 +1,4 @@
+import { GET_USER_BY_ID } from '@/shared/graphQL/@client/getUserById';
 import { PostResponseInterface } from '@/shared/graphQL/@post/interface/PostResponseInterface';
 import { DELETE_POST } from '@/shared/graphQL/@post/mutations/deletePost';
 import { DeletePostType } from '@/shared/interfaces/post.types';
@@ -6,7 +7,8 @@ import { useMutation } from '@apollo/client';
 
 export const useDeletePost = (id: string) => {
   const [deletePost, { loading }] = useMutation<{ deletePost: PostResponseInterface }, { data: DeletePostType }>(
-    DELETE_POST
+    DELETE_POST,
+    { fetchPolicy: 'no-cache', refetchQueries: [GET_USER_BY_ID, 'writtenPosts'] }
   );
 
   const deletePostFunction = async () => {

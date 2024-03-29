@@ -13,6 +13,8 @@ import { Grid } from '@mui/joy';
 const PostModule = () => {
   const { me } = useAppSelector((state) => state.meReducer);
   const { postId } = useParams();
+
+  console.log(postId);
   const [getPostById, { data, loading, error }] = useLazyQuery<
     { getPostById: PostResponseInterface },
     { data: { id: string } }
