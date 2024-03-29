@@ -15,6 +15,10 @@ export const GET_POST_BY_ID = gql`
       likesAmount
       comments {
         id
+        text
+        user {
+          firstName
+        }
       }
       likedBy {
         userId

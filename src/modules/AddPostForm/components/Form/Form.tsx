@@ -15,7 +15,7 @@ import { snackBarActions } from '../../../../shared/store/snackbar/snackBarSlice
 
 const Form: React.FC = () => {
   const dispath = useAppDispatch();
-  const { fields } = useAppSelector(state => state.addPostReducer);
+  const { fields } = useAppSelector((state) => state.addPostReducer);
   const [addPost, { loading }] = useMutation<{ addPost: PostResponseInterface }, { data: AddPostInterface }>(ADD_POST);
 
   const onChange = (value: string, id: string) => dispath(changeValueInput(value, id));
@@ -45,7 +45,7 @@ const Form: React.FC = () => {
           open: true,
           message: 'Post was added!',
           color: 'success',
-        }),
+        })
       );
     }
   };

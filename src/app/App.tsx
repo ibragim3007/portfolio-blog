@@ -6,6 +6,7 @@ import ApolloProviderWrapper from './Apollo/ApolloProviderWrapper';
 import { ThemeProvider } from './provider/ThemeProvider';
 import SnackbarCustom from '@/shared/ui/snackbar/SnackbarCustom';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 if (process.env.IS_DEV === 'TRUE') {
   loadDevMessages();

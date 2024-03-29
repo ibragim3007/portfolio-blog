@@ -11,6 +11,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { NavLink } from 'react-router-dom';
 import CommentIcon from '@mui/icons-material/Comment';
 import { config } from '../../app/router/routerConfig';
+import { useDeletePost } from '@/shared/hooks/entities/post/useDeletePost';
+import LoadingCircle from '../Loading/LoadingCircle';
 
 interface HeaderCardProps {
   post: Omit<PostResponseInterface, 'article'>;
@@ -18,6 +20,7 @@ interface HeaderCardProps {
 }
 
 export const HeaderCard: React.FC<HeaderCardProps> = ({ post, showTools }) => {
+  const { deletePostFunction, loading } = useDeletePost(post.id);
   return (
     <Grid container justifyContent="space-between" alignItems="center">
       <Grid container alignItems="center" gap={3}>
@@ -46,10 +49,12 @@ export const HeaderCard: React.FC<HeaderCardProps> = ({ post, showTools }) => {
         <ClientProvider role="USER" isShow={showTools}>
           <Dropdown>
             <MenuButton slotProps={{ root: { variant: 'outlined', color: 'neutral' } }} slots={{ root: IconButton }}>
-              <MoreVert />
+              {loading ? <LoadingCircle /> : <MoreVert />}
             </MenuButton>
             <Menu>
-              <MenuItem color="danger">Delete</MenuItem>
+              <MenuItem onClick={() => void deletePostFunction()} color="danger">
+                Delete
+              </MenuItem>
               <MenuItem>Edit</MenuItem>
             </Menu>
           </Dropdown>
