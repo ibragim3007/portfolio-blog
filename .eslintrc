@@ -24,6 +24,10 @@
   ],
   "plugins": ["@typescript-eslint", "react-hooks", "react"],
   "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
+    // "no-unused-vars": "warn",
+    "@typescript-eslint/no-unused-vars": ["warn", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }],
     "semi": 2,
     "quotes": [
       "error",
@@ -32,7 +36,7 @@
         "avoidEscape": true
       }
     ],
-    "arrow-parens": ["error", "as-needed"],
+    // "arrow-parens": ["as-needed"],
 
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/member-delimiter-style": "off",
