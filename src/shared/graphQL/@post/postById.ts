@@ -12,6 +12,10 @@ export const GET_POST_BY_ID = gql`
         lastName
       }
       createDate
+      likesAmount
+      comments {
+        id
+      }
       likedBy {
         userId
       }

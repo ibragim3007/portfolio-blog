@@ -25,7 +25,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, isMyPost }) => {
             loading={loading || loadingUpdatedPost}
             lightUp={lightUp}
             onClick={() => void clickRateButton()}
-            amountOfLikes={localPost.likedBy.length}
+            amountOfLikes={localPost.likesAmount}
           />
         </Grid>
       </Stack>

@@ -8,4 +8,7 @@ export interface PostResponseInterface {
   author: MeInterface;
   authorId: string;
   likedBy: { userId: string }[];
+  comments: Comment[];
+  likesAmount: number;
+  commentsAmount: number;
 }

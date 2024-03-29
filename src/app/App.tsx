@@ -4,6 +4,8 @@ import { setupStore } from '../shared/store/store';
 import { loadDevMessages, loadErrorMessages } from '@apollo/client/dev';
 import ApolloProviderWrapper from './Apollo/ApolloProviderWrapper';
 import { ThemeProvider } from './provider/ThemeProvider';
+import SnackbarCustom from '@/shared/ui/snackbar/SnackbarCustom';
+import { ToastContainer } from 'react-toastify';
 
 if (process.env.IS_DEV === 'TRUE') {
   loadDevMessages();
@@ -17,6 +19,19 @@ function App() {
       <ApolloProviderWrapper>
         <ThemeProvider>
           <AppRoter />
+          <SnackbarCustom />
+          <ToastContainer
+            position="top-left"
+            autoClose={6000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
         </ThemeProvider>
       </ApolloProviderWrapper>
     </Provider>

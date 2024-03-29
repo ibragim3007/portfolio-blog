@@ -16,7 +16,7 @@ const Posts = () => {
   return (
     <Grid container gap={2}>
       <LoadingWrapper loading={loading} loadingNode={<MultipleSkeletonCards />}>
-        {data?.getAllPosts.map(post => {
+        {data?.getAllPosts.map((post) => {
           return <PreviewCard post={post} key={post.id} />;
         })}
       </LoadingWrapper>

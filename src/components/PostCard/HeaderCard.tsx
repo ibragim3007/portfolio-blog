@@ -9,6 +9,7 @@ import Avatar from '../Avatar/Avatar';
 import { PostResponseInterface } from '../../shared/graphQL/@post/interface/PostResponseInterface';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { NavLink } from 'react-router-dom';
+import CommentIcon from '@mui/icons-material/Comment';
 import { config } from '../../app/router/routerConfig';
 
 interface HeaderCardProps {
@@ -30,9 +31,14 @@ export const HeaderCard: React.FC<HeaderCardProps> = ({ post, showTools }) => {
         </NavLink>
         <Grid container flexDirection="column" gap={1}>
           <Title variant="title">{post.title}</Title>
-          <Chip color="primary" variant="soft" startDecorator={<FavoriteIcon />}>
-            {post.likedBy.length}
-          </Chip>
+          <Grid container gap={1}>
+            <Chip color="primary" variant="soft" startDecorator={<FavoriteIcon />}>
+              {post.likesAmount}
+            </Chip>
+            <Chip color="neutral" variant="soft" startDecorator={<CommentIcon />}>
+              {(post.comments || []).length}
+            </Chip>
+          </Grid>
         </Grid>
       </Grid>
       <Grid container alignItems="center" gap={2}>

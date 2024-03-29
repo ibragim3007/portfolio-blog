@@ -4,7 +4,7 @@ import { TOKEN_STRING } from '../../shared/constants/LocalStorageStrings';
 
 const makeApolloClient = () => {
   const httpLink = new HttpLink({
-    uri: 'https://portfolio-blog-backend-ibragim3007.vercel.app/graphql',
+    uri: 'https://portfolio-blog-backend-chi.vercel.app/graphql',
   });
 
   const token = localStorage.getItem(TOKEN_STRING) as string;

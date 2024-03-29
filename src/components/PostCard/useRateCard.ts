@@ -6,11 +6,12 @@ import { useAppDispatch, useAppSelector } from '../../shared/hooks/redux/reduxHo
 import { snackBarActions } from '../../shared/store/snackbar/snackBarSlice';
 import { RateReqInterface } from './graphql/interface/rateReqInterface';
 import { RATE_POST } from './graphql/ratePost';
+import { Inform } from '@/shared/service/log/log.service';
 
 export const useRateCard = (post: PostResponseInterface) => {
   const [localPost, setLocalPost] = useState(post);
-  const me = useAppSelector(state => state.meReducer.me);
-  const [lightUp, setLightUp] = useState(me ? localPost?.likedBy.some(post => post.userId === me.id) : false);
+  const me = useAppSelector((state) => state.meReducer.me);
+  const [lightUp, setLightUp] = useState(me ? localPost?.likedBy.some((post) => post.userId === me.id) : false);
 
   const dispath = useAppDispatch();
   const [rate, { loading, error }] = useMutation<{ ratePost: boolean }, { data: RateReqInterface }>(RATE_POST);
@@ -22,26 +23,31 @@ export const useRateCard = (post: PostResponseInterface) => {
   });
 
   const clickRateButton = async () => {
-    if (localPost)
-      await rate({
-        variables: {
-          data: {
-            postId: localPost.id,
+    try {
+      if (localPost)
+        await rate({
+          variables: {
+            data: {
+              postId: localPost.id,
+            },
           },
-        },
-      });
+        });
 
-    if (post) {
-      const updatePost = await getUpdatedPost({
-        variables: {
-          data: {
-            id: post.id,
+      if (post) {
+        const updatePost = await getUpdatedPost({
+          variables: {
+            data: {
+              id: post.id,
+            },
           },
-        },
-      });
+        });
 
-      if (updatePost.data?.getPostById)
-        setLightUp(me ? updatePost.data?.getPostById.likedBy.some(post => post.userId === me.id) : false);
+        if (updatePost.data?.getPostById)
+          setLightUp(me ? updatePost.data?.getPostById.likedBy.some((post) => post.userId === me.id) : false);
+      }
+    } catch (e) {
+      console.log(e);
+      Inform.error(e);
     }
   };
 
@@ -58,7 +64,7 @@ export const useRateCard = (post: PostResponseInterface) => {
           open: true,
           message: error.message,
           color: 'danger',
-        }),
+        })
       );
     }
   }, [dispath, error]);

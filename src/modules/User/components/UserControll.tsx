@@ -4,7 +4,7 @@ import { useAppSelector } from '../../../shared/hooks/redux/reduxHooks';
 import OtherUserInfo from './OtherInfo/OtherUserInfo';
 
 const UserControll = () => {
-  const { me } = useAppSelector(state => state.meReducer);
+  const { me } = useAppSelector((state) => state.meReducer);
   const { userId } = useParams();
   const isMe = me?.id === userId;
 

@@ -5,17 +5,15 @@ export const GET_PREVIEW_POSTS = gql`
     getAllPosts {
       id
       title
-      article
-      createDate
-      author {
+      likesAmount
+      comments {
         id
+      }
+      author {
         firstName
         lastName
       }
       createDate
-      likedBy {
-        userId
-      }
     }
   }
 `;

@@ -6,14 +6,13 @@ export const GET_ALL_POSTS = gql`
       id
       title
       article
+      likesAmount
+      commentsAmount
       author {
         firstName
         lastName
       }
       createDate
-      likedBy {
-        userId
-      }
     }
   }
 `;

@@ -10,7 +10,6 @@ import AuthPage from '../../pages/AuthPage';
 import HomePage from '../../pages/Home';
 import SignUpPage from '../../pages/SignUp/components/SignUpPage';
 import { WrapperApp } from '../../shared/ui/layout/WrapperApp';
-import SnackbarCustom from '../../shared/ui/snackbar/SnackbarCustom';
 import { setMeAction } from '../../shared/store/me/actions/setMeAction';
 import { config } from './routerConfig';
 import PostPage from '../../pages/PostPage';
@@ -43,7 +42,6 @@ const AppRoter: React.FC = () => {
           <Route path={config.signup} element={<SignUpPage />} />
           <Route path="*" element={<Navigate to={config.feed} />} />
         </Routes>
-        <SnackbarCustom />
       </BrowserRouter>
     </WrapperApp>
   );

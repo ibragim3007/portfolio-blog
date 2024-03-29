@@ -10,10 +10,11 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from '../graphql/Login';
 import { LoginResponseInterface } from '../graphql/interfaces/LoginInterface';
 import { TOKEN_STRING } from '../../../shared/constants/LocalStorageStrings';
+import { Inform } from '@/shared/service/log/log.service';
 
 const Login = () => {
   const dispath = useAppDispatch();
-  const fields = useAppSelector(state => state.signInReducer.fields);
+  const fields = useAppSelector((state) => state.signInReducer.fields);
 
   const [login, { data, loading, error }] = useMutation<
     { login: LoginResponseInterface },
@@ -21,22 +22,25 @@ const Login = () => {
   >(LOGIN);
 
   const handlerLoginButton = async () => {
-    dispath(checkInputValue(fields.email.id));
-    dispath(checkInputValue(fields.password.id));
-    if (!fields.email.value || !fields.password.value) {
-      return;
-    }
-    await login({
-      variables: {
-        data: {
-          email: fields.email.value,
-          password: fields.password.value,
+    try {
+      dispath(checkInputValue(fields.email.id));
+      dispath(checkInputValue(fields.password.id));
+      if (!fields.email.value || !fields.password.value) {
+        return;
+      }
+      await login({
+        variables: {
+          data: {
+            email: fields.email.value,
+            password: fields.password.value,
+          },
         },
-      },
-    });
+      });
+    } catch (e) {
+      Inform.error(e);
+    }
   };
 
-  console.log(data);
   useEffect(() => {
     if (data && !loading) {
       localStorage.setItem(TOKEN_STRING, data.login.token);
