@@ -8,13 +8,17 @@ import { RateReqInterface } from '../../../../components/PostCard/graphql/interf
 import { RATE_POST } from '../../../../components/PostCard/graphql/ratePost';
 import { Inform } from '@/shared/service/log/log.service';
 
+import { GET_PREVIEW_POSTS } from '@/shared/graphQL/@post/getPreviewPosts';
+
 export const useRateCard = (post: PostResponseInterface) => {
   const [localPost, setLocalPost] = useState(post);
   const me = useAppSelector((state) => state.meReducer.me);
   const [lightUp, setLightUp] = useState(me ? localPost?.likedBy.some((post) => post.userId === me.id) : false);
 
   const dispath = useAppDispatch();
-  const [rate, { loading, error }] = useMutation<{ ratePost: boolean }, { data: RateReqInterface }>(RATE_POST);
+  const [rate, { loading, error }] = useMutation<{ ratePost: boolean }, { data: RateReqInterface }>(RATE_POST, {
+    refetchQueries: [GET_PREVIEW_POSTS, 'likesAmount'],
+  });
   const [getUpdatedPost, { data: udpatePostData, loading: loadingUpdatedPost }] = useLazyQuery<
     { getPostById: PostResponseInterface },
     { data: { id: string } }

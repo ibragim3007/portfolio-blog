@@ -21,6 +21,7 @@ interface HeaderCardProps {
 
 export const HeaderCard: React.FC<HeaderCardProps> = ({ post, showTools }) => {
   const { deletePostFunction, loading } = useDeletePost(post.id);
+
   return (
     <Grid container justifyContent="space-between" alignItems="center">
       <Grid container alignItems="center" gap={3}>
