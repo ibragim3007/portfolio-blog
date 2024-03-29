@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Title } from '../../../shared/typography/Title';
+import { Title } from '../../../shared/ui/typography/Title';
 import ClosedCard from '../../../components/Cards/ClosedCard';
-import ClientProvider from '../../../security/ClientProvider';
+import ClientProvider from '../../../shared/security/ClientProvider';
 import { Grid } from '@mui/joy';
 
 const Greetings = () => {

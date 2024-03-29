@@ -1,6 +1,6 @@
 import React from 'react';
-import { Image } from '../../../../shared/image/Image';
-import NodeJsIcon from '../../../../assets/nodejs.png';
+import { Image } from '../../../../shared/ui/image/Image';
+import NodeJsIcon from '../../../../app/assets/nodejs.png';
 import ItemCardLabel from '../../../../components/Cards/ItemCardLabel';
 import { IMAGE_HEIGHT } from './constants/StyleConsts';
 

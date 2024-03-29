@@ -1,8 +1,8 @@
 import React from 'react';
 import ItemCardLabel from '../../../../components/Cards/ItemCardLabel';
 
-import MuiIcon from '../../../../assets/mui-logo.png';
-import { Image } from '../../../../shared/image/Image';
+import MuiIcon from '../../../../app/assets/mui-logo.png';
+import { Image } from '../../../../shared/ui/image/Image';
 import { IMAGE_HEIGHT } from './constants/StyleConsts';
 
 const MuiTech = () => {

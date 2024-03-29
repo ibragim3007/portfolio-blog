@@ -2,8 +2,8 @@ import React from 'react';
 import { config } from '../../../router/routerConfig';
 import LinkItem from './LinkItem';
 import { Grid } from '@mui/joy';
-import ClientProvider from '../../../security/ClientProvider';
-import { useAppSelector } from '../../../hooks/redux/reduxHooks';
+import ClientProvider from '../../../shared/security/ClientProvider';
+import { useAppSelector } from '../../../shared/hooks/redux/reduxHooks';
 
 const NavLinks = () => {
   const { me } = useAppSelector(state => state.meReducer);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title } from '../../shared/typography/Title';
+import { Title } from '../../shared/ui/typography/Title';
 
 interface ContentCardProps {
   content?: string;

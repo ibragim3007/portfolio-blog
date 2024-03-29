@@ -1,6 +1,6 @@
 import { Grid, Skeleton } from '@mui/joy';
 import React from 'react';
-import { Card } from '../../../shared/layout/Card';
+import { Card } from '../../../shared/ui/layout/Card';
 
 const SkeletonCard = () => {
   return (

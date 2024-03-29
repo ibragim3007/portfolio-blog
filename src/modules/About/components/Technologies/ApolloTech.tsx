@@ -1,8 +1,8 @@
 import React from 'react';
 import ItemCardLabel from '../../../../components/Cards/ItemCardLabel';
 
-import GraphQL from '../../../../assets/GraphQL_Logo.svg.png';
-import { Image } from '../../../../shared/image/Image';
+import GraphQL from '../../../../app/assets/GraphQL_Logo.svg.png';
+import { Image } from '../../../../shared/ui/image/Image';
 import { IMAGE_HEIGHT } from './constants/StyleConsts';
 
 const ApolloTech = () => {

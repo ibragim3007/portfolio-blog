@@ -2,16 +2,16 @@ import React from 'react';
 
 import { Button, Grid, Stack } from '@mui/joy';
 import LabelInput from '../../../../components/Fields/LabelInput';
-import { useAppDispatch, useAppSelector } from '../../../../hooks/redux/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../../../shared/hooks/redux/reduxHooks';
 
 import { useMutation } from '@apollo/client';
-import { ADD_POST } from '../../../../GraphQL/@post/addPost';
-import { PostResponseInterface } from '../../../../GraphQL/@post/interfaces/PostResponseInterface';
+import { ADD_POST } from '../../../../shared/graphQL/@post/addPost';
+import { PostResponseInterface } from '../../../../shared/graphQL/@post/interface/PostResponseInterface';
 import { changeValueInput } from '../../store/actions/changeValueInput';
 import { checkInputValue } from '../../store/actions/checkInputValue';
 import { AddPostInterface } from '../../store/interface/AddPostFormInterface';
 import { addPostActions } from '../../store/addPostSlice';
-import { snackBarActions } from '../../../../store/snackbar/actions/snackBarSlice';
+import { snackBarActions } from '../../../../shared/store/snackbar/snackBarSlice';
 
 const Form: React.FC = () => {
   const dispath = useAppDispatch();

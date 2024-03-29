@@ -1,12 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useOtherInfo } from './useOtherInfo';
-import { Title } from '../../../../shared/typography/Title';
+import { Title } from '../../../../shared/ui/typography/Title';
 import LoadingWrapper from '../../../../components/Loading/LoadingWrapper';
-import { Card } from '../../../../shared/layout/Card';
+import { Card } from '../../../../shared/ui/layout/Card';
 import Avatar from '../../../../components/Avatar/Avatar';
 import { Grid } from '@mui/joy';
-import { getTimeUSA } from '../../../../helpers/utils/ToTime';
+import { getTimeUSA } from '../../../../shared/helpers/ToTime';
 import PostCard from '../../../../components/PostCard/PostCard';
 
 const OtherUserInfo = () => {

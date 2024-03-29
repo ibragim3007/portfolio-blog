@@ -1,8 +1,9 @@
 import { Stack } from '@mui/joy';
 import React from 'react';
-import { Input } from '../../shared/inputs/Input';
-import { Title } from '../../shared/typography/Title';
-import { Textarea } from '../../shared/inputs/Textarea';
+
+import { Title } from '../../shared/ui/typography/Title';
+import { Textarea } from '../../shared/ui/inputs/Textarea';
+import { Input } from '../../shared/ui/inputs/Input';
 
 interface LabelInputProps {
   id: string;

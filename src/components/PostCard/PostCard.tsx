@@ -1,7 +1,7 @@
 import { Grid, Stack } from '@mui/joy';
 import React from 'react';
-import { PostResponseInterface } from '../../GraphQL/@post/interfaces/PostResponseInterface';
-import { Card } from '../../shared/layout/Card';
+import { PostResponseInterface } from '../../shared/graphQL/@post/interface/PostResponseInterface';
+import { Card } from '../../shared/ui/layout/Card';
 import LikeButton from '../LikeButton/LikeButton';
 import ContentCard from './ContentCard';
 import { HeaderCard } from './HeaderCard';

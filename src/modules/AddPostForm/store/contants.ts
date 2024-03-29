@@ -1,4 +1,4 @@
-import { WrapperForFieldValue } from '../../../interfaces/globalInterface';
+import { WrapperForFieldValue } from '../../../shared/interfaces/globalInterface';
 import { AddPostInterface } from './interface/AddPostFormInterface';
 
 export const defaultAddPostFields: WrapperForFieldValue<AddPostInterface> = {

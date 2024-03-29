@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { WrapperForFieldValue } from '../../../interfaces/globalInterface';
+import { WrapperForFieldValue } from '../../../shared/interfaces/globalInterface';
 import { SignInFieldsInterface, defaultSignInFields } from './constants/defaultSignInFields';
 
 interface initialStateInterface {

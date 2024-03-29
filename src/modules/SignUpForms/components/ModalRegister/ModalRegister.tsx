@@ -1,9 +1,9 @@
 import { Button, Stack } from '@mui/joy';
 import React, { useEffect, useState } from 'react';
 import LabelInput from '../../../../components/Fields/LabelInput';
-import { useAppDispatch, useAppSelector } from '../../../../hooks/redux/reduxHooks';
-import CModal from '../../../../shared/modals/CModal';
-import { Title } from '../../../../shared/typography/Title';
+import { useAppDispatch, useAppSelector } from '../../../../shared/hooks/redux/reduxHooks';
+import CModal from '../../../../shared/ui/modals/CModal';
+import { Title } from '../../../../shared/ui/typography/Title';
 import HiMessage from './HiMessage';
 import { checkInputValue } from '../../store/actions/checkInputValue';
 import ConfirmPassword from './ConfirmPassword';

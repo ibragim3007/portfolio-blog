@@ -1,8 +1,8 @@
-import { WrapperForFieldValue } from '../../../../interfaces/globalInterface';
-import { AppDispatch } from '../../../../store/store';
+import { WrapperForFieldValue } from '../../../../shared/interfaces/globalInterface';
+import { AppDispatch } from '../../../../shared/store/store';
 import { SignUpFieldsInterface } from '../constants/fields';
 import { signUpActions } from '../signUpSlice';
-import { RootState } from './../../../../store/store';
+import { RootState } from '../../../../shared/store/store';
 
 export const changeValueInput =
   <T>(value: T, id: string) =>

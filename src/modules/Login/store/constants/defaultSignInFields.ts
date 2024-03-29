@@ -1,4 +1,4 @@
-import { WrapperForFieldValue } from '../../../../interfaces/globalInterface';
+import { WrapperForFieldValue } from '../../../../shared/interfaces/globalInterface';
 
 export interface SignInFieldsInterface {
   email: string;

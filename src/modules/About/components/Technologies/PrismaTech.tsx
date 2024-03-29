@@ -1,6 +1,6 @@
 import React from 'react';
-import { Image } from '../../../../shared/image/Image';
-import PrismaIcon from '../../../../assets/prismaicon.png';
+import { Image } from '../../../../shared/ui/image/Image';
+import PrismaIcon from '../../../../app/assets/prismaicon.png';
 import ItemCardLabel from '../../../../components/Cards/ItemCardLabel';
 import { IMAGE_HEIGHT } from './constants/StyleConsts';
 

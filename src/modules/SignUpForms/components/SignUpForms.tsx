@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Card } from '../../../shared/layout/Card';
+import { Card } from '../../../shared/ui/layout/Card';
 import LabelInput from '../../../components/Fields/LabelInput';
 import { Button, Grid, Stack } from '@mui/joy';
 import SignUpInfo from './SignUpInfo';
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../../shared/hooks/redux/reduxHooks';
 import ModalRegister from './ModalRegister/ModalRegister';
 import { checkInputValue } from '../store/actions/checkInputValue';
 import { changeValueInput } from '../store/actions/changeValueInput';

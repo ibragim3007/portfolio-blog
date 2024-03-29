@@ -3,10 +3,10 @@ import Logo from './Logo';
 import NavLinks from './NavLinks';
 import { Button, Grid } from '@mui/joy';
 
-import { Card } from '../../../shared/layout/Card';
-import { useAppDispatch } from '../../../hooks/redux/reduxHooks';
-import { logoutAction } from '../../../store/me/actions/logoutAction';
-import ClientProvider from '../../../security/ClientProvider';
+import { Card } from '../../../shared/ui/layout/Card';
+import { useAppDispatch } from '../../../shared/hooks/redux/reduxHooks';
+import { logoutAction } from '../../../shared/store/me/actions/logoutAction';
+import ClientProvider from '../../../shared/security/ClientProvider';
 
 const TheHeader = () => {
   const dispath = useAppDispatch();

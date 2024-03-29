@@ -1,6 +1,6 @@
 import React from 'react';
-import { Image } from '../../../../shared/image/Image';
-import PostgreIcon from '../../../../assets/postgre.png';
+import { Image } from '../../../../shared/ui/image/Image';
+import PostgreIcon from '../../../../app/assets/postgre.png';
 import ItemCardLabel from '../../../../components/Cards/ItemCardLabel';
 import { IMAGE_HEIGHT } from './constants/StyleConsts';
 

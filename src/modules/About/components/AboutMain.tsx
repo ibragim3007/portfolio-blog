@@ -1,7 +1,7 @@
 import { Grid, Stack } from '@mui/joy';
 import React from 'react';
-import { Title } from '../../../shared/typography/Title';
-import { Card } from '../../../shared/layout/Card';
+import { Title } from '../../../shared/ui/typography/Title';
+import { Card } from '../../../shared/ui/layout/Card';
 import ReactTech from './Technologies/ReactTech';
 import Typescript from './Technologies/Typescript';
 import MuiTech from './Technologies/MuiTech';
@@ -10,7 +10,7 @@ import CardWrapper from '../../../components/Cards/CardWrapper';
 import MyGitHub from './MyGitHub/MyGitHub';
 import FoldersScreen from './MoreFrontInfo/FoldersScreen';
 import ReduxToolkit from './Technologies/ReduxToolkit';
-import { BACK_REPO_OF_THIS_PROJECT, FRONT_REPO_OF_THIS_PROJECT } from '../../../constants/LINKS';
+import { BACK_REPO_OF_THIS_PROJECT, FRONT_REPO_OF_THIS_PROJECT } from '../../../shared/constants/LINKS';
 import NodeJSTech from './Technologies/NodeJsTech';
 import PrismaTech from './Technologies/PrismaTech';
 import PostgreTech from './Technologies/PostgreTech';

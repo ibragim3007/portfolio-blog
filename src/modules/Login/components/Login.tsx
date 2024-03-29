@@ -1,15 +1,15 @@
 import { Button, Grid } from '@mui/joy';
 import React, { useEffect } from 'react';
-import { Title } from '../../../shared/typography/Title';
+import { Title } from '../../../shared/ui/typography/Title';
 import Inputs from './Inputs/Inputs';
-import { Card } from '../../../shared/layout/Card';
+import { Card } from '../../../shared/ui/layout/Card';
 import SignUpButton from '../../SignUp';
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../../shared/hooks/redux/reduxHooks';
 import { checkInputValue } from '../store/actions/checkInputValue';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../graphql/Login';
 import { LoginResponseInterface } from '../graphql/interfaces/LoginInterface';
-import { TOKEN_STRING } from '../../../constants/LocalStorageStrings';
+import { TOKEN_STRING } from '../../../shared/constants/LocalStorageStrings';
 
 const Login = () => {
   const dispath = useAppDispatch();

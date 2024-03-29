@@ -1,7 +1,7 @@
 import React from 'react';
 import LayoutWindow from '../../../router/controller/LayoutWindow';
 import UserControll from '../../../modules/User';
-import AppWidth from '../../../shared/layout/AppWidth';
+import AppWidth from '../../../shared/ui/layout/AppWidth';
 
 const UserPage = () => {
   return (

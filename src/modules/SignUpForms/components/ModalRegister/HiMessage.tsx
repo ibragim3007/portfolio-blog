@@ -1,6 +1,6 @@
 import { Stack } from '@mui/joy';
 import React from 'react';
-import { Title } from '../../../../shared/typography/Title';
+import { Title } from '../../../../shared/ui/typography/Title';
 
 const HiMessage = () => {
   return (

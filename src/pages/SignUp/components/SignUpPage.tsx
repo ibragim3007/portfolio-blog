@@ -1,5 +1,5 @@
 import React from 'react';
-import AppWidth from '../../../shared/layout/AppWidth';
+import AppWidth from '../../../shared/ui/layout/AppWidth';
 import SignUpForms from '../../../modules/SignUpForms';
 
 const SignUpPage = () => {

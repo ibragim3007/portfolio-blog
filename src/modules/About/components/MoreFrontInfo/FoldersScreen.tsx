@@ -1,8 +1,8 @@
 import { Grid } from '@mui/joy';
 import React from 'react';
-import { Image } from '../../../../shared/image/Image';
+import { Image } from '../../../../shared/ui/image/Image';
 import Folders from '../../../../assets/Folders.png';
-import { Title } from '../../../../shared/typography/Title';
+import { Title } from '../../../../shared/ui/typography/Title';
 
 const FoldersScreen = () => {
   return (

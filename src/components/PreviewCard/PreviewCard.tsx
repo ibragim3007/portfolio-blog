@@ -2,7 +2,7 @@ import { Stack } from '@mui/joy';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { config } from '../../router/routerConfig';
-import { Card } from '../../shared/layout/Card';
+import { Card } from '../../shared/ui/layout/Card';
 import { HeaderCard } from '../PostCard/HeaderCard';
 import { PreviewCardInterface } from './graphql/interface/PreviewCardInterface';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from './Form/Form';
-import { Card } from '../../../shared/layout/Card';
+import { Card } from '../../../shared/ui/layout/Card';
 
 const AddNewPost: React.FC = () => {
   return (

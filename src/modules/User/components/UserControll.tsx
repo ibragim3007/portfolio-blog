@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useAppSelector } from '../../../hooks/redux/reduxHooks';
+import { useAppSelector } from '../../../shared/hooks/redux/reduxHooks';
 import OtherUserInfo from './OtherInfo/OtherUserInfo';
 
 const UserControll = () => {

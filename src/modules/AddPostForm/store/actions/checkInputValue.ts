@@ -1,5 +1,5 @@
-import { WrapperForFieldValue } from '../../../../interfaces/globalInterface';
-import { AppDispatch, RootState } from '../../../../store/store';
+import { WrapperForFieldValue } from '../../../../shared/interfaces/globalInterface';
+import { AppDispatch, RootState } from '../../../../shared/store/store';
 import { addPostActions } from '../addPostSlice';
 
 import { AddPostInterface } from '../interface/AddPostFormInterface';

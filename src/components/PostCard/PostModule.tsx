@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import PostCard from './PostCard';
 import { useLazyQuery } from '@apollo/client';
-import { GET_POST_BY_ID } from '../../GraphQL/@post/postById';
-import { PostResponseInterface } from '../../GraphQL/@post/interfaces/PostResponseInterface';
+import { GET_POST_BY_ID } from '../../shared/graphQL/@post/postById';
+import { PostResponseInterface } from '../../shared/graphQL/@post/interface/PostResponseInterface';
 import { useParams } from 'react-router-dom';
-import { Title } from '../../shared/typography/Title';
+import { Title } from '../../shared/ui/typography/Title';
 import LoadingCircle from '../Loading/LoadingCircle';
-import { useAppSelector } from '../../hooks/redux/reduxHooks';
+import { useAppSelector } from '../../shared/hooks/redux/reduxHooks';
 
 const PostModule = () => {
   const { me } = useAppSelector(state => state.meReducer);

@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { WrapperForFieldValue } from './../../../interfaces/globalInterface';
+import { WrapperForFieldValue } from '../../../shared/interfaces/globalInterface';
 import { AddPostInterface } from './interface/AddPostFormInterface';
 import { defaultAddPostFields } from './contants';
 

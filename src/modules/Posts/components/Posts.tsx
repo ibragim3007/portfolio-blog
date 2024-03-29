@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { Grid } from '@mui/joy';
-import { GET_PREVIEW_POSTS } from '../../../GraphQL/@post/getPreviewPosts';
+import { GET_PREVIEW_POSTS } from '../../../shared/graphQL/@post/getPreviewPosts';
 import LoadingWrapper from '../../../components/Loading/LoadingWrapper';
 
 import { PreviewCardInterface } from '../../../components/PreviewCard/graphql/interface/PreviewCardInterface';

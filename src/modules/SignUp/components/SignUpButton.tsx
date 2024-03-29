@@ -1,10 +1,10 @@
 import { Button, Grid } from '@mui/joy';
 import React from 'react';
-import { Title } from '../../../shared/typography/Title';
+import { Title } from '../../../shared/ui/typography/Title';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { NavLink } from 'react-router-dom';
 import { config } from '../../../router/routerConfig';
-import ClientProvider from '../../../security/ClientProvider';
+import ClientProvider from '../../../shared/security/ClientProvider';
 
 const SignUpButton = () => {
   return (

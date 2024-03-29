@@ -1,7 +1,7 @@
 import { Button, Grid, Stack } from '@mui/joy';
 import React, { useEffect } from 'react';
-import { Title } from '../../../../shared/typography/Title';
-import { useAppDispatch, useAppSelector } from '../../../../hooks/redux/reduxHooks';
+import { Title } from '../../../../shared/ui/typography/Title';
+import { useAppDispatch, useAppSelector } from '../../../../shared/hooks/redux/reduxHooks';
 import LabelInput from '../../../../components/Fields/LabelInput';
 import BackButton from '../../../../components/BackButton/BackButton';
 import { checkInputValue } from '../../store/actions/checkInputValue';
@@ -10,7 +10,7 @@ import { changeValueInput } from '../../store/actions/changeValueInput';
 import { useMutation } from '@apollo/client';
 import { SignUp } from '../../graphql/SignUp';
 import { CreateUserInterface } from '../../graphql/interfaces/CreateUserInterface';
-import { TOKEN_STRING } from '../../../../constants/LocalStorageStrings';
+import { TOKEN_STRING } from '../../../../shared/constants/LocalStorageStrings';
 
 interface ConfirmPasswordProps {
   closeFunction: () => void;

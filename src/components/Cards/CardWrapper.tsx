@@ -1,7 +1,7 @@
 import { Grid } from '@mui/joy';
 import React from 'react';
-import { Title } from '../../shared/typography/Title';
-import { ItemCard } from '../../shared/layout/ItemCard';
+import { Title } from '../../shared/ui/typography/Title';
+import { ItemCard } from '../../shared/ui/layout/ItemCard';
 
 interface CardWrapperProps {
   children: React.ReactNode;

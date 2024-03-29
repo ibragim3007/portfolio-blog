@@ -1,7 +1,7 @@
 import { Grid } from '@mui/joy';
 import React from 'react';
 import LabelInput from '../../../../components/Fields/LabelInput';
-import { useAppDispatch, useAppSelector } from '../../../../hooks/redux/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../../../shared/hooks/redux/reduxHooks';
 import { changeValueInput } from '../../store/actions/changeValueInput';
 
 const Inputs = () => {

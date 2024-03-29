@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Grid } from '@mui/joy';
 import Posts from '../../../modules/Posts';
-import ClientProvider from '../../../security/ClientProvider';
-import AppWidth from '../../../shared/layout/AppWidth';
+import ClientProvider from '../../../shared/security/ClientProvider';
+import AppWidth from '../../../shared/ui/layout/AppWidth';
 
 import AddNewPost from '../../../modules/AddPostForm';
 

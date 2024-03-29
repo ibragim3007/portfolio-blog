@@ -1,7 +1,7 @@
 import React from 'react';
-import { ItemCard } from '../../shared/layout/ItemCard';
+import { ItemCard } from '../../shared/ui/layout/ItemCard';
 import { Grid } from '@mui/joy';
-import { Title } from '../../shared/typography/Title';
+import { Title } from '../../shared/ui/typography/Title';
 import styles from './css/styles.module.css';
 
 interface ItemCardLabelProps {

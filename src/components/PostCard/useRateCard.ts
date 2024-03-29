@@ -1,9 +1,9 @@
 import { useLazyQuery, useMutation } from '@apollo/client';
 import { useEffect, useState } from 'react';
-import { PostResponseInterface } from '../../GraphQL/@post/interfaces/PostResponseInterface';
-import { GET_POST_BY_ID } from '../../GraphQL/@post/postById';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux/reduxHooks';
-import { snackBarActions } from '../../store/snackbar/actions/snackBarSlice';
+import { PostResponseInterface } from '../../shared/graphQL/@post/interface/PostResponseInterface';
+import { GET_POST_BY_ID } from '../../shared/graphQL/@post/postById';
+import { useAppDispatch, useAppSelector } from '../../shared/hooks/redux/reduxHooks';
+import { snackBarActions } from '../../shared/store/snackbar/snackBarSlice';
 import { RateReqInterface } from './graphql/interface/rateReqInterface';
 import { RATE_POST } from './graphql/ratePost';
 

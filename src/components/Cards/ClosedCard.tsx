@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from '../../shared/layout/Card';
+import { Card } from '../../shared/ui/layout/Card';
 import { IconButton } from '@mui/joy';
 import CloseIcon from '@mui/icons-material/Close';
 
