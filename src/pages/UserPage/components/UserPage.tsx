@@ -1,5 +1,5 @@
 import React from 'react';
-import LayoutWindow from '../../../router/controller/LayoutWindow';
+import LayoutWindow from '../../../app/router/controller/LayoutWindow';
 import UserControll from '../../../modules/User';
 import AppWidth from '../../../shared/ui/layout/AppWidth';
 

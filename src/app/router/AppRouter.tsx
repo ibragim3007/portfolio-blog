@@ -1,20 +1,20 @@
 import { useQuery } from '@apollo/client';
 import React, { useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { MeInterface } from '../shared/graphQL/@client/interface/meInterface';
-import { ME } from '../shared/graphQL/@client/me';
-import { useAppDispatch } from '../shared/hooks/redux/reduxHooks';
-import TheHeader from '../modules/header';
-import AboutPage from '../pages/About';
-import AuthPage from '../pages/AuthPage';
-import HomePage from '../pages/Home';
-import SignUpPage from '../pages/SignUp/components/SignUpPage';
-import { WrapperApp } from '../shared/ui/layout/WrapperApp';
-import SnackbarCustom from '../shared/ui/snackbar/SnackbarCustom';
-import { setMeAction } from '../shared/store/me/actions/setMeAction';
+import { MeInterface } from '../../shared/graphQL/@client/interface/meInterface';
+import { ME } from '../../shared/graphQL/@client/me';
+import { useAppDispatch } from '../../shared/hooks/redux/reduxHooks';
+import TheHeader from '../../modules/header';
+import AboutPage from '../../pages/About';
+import AuthPage from '../../pages/AuthPage';
+import HomePage from '../../pages/Home';
+import SignUpPage from '../../pages/SignUp/components/SignUpPage';
+import { WrapperApp } from '../../shared/ui/layout/WrapperApp';
+import SnackbarCustom from '../../shared/ui/snackbar/SnackbarCustom';
+import { setMeAction } from '../../shared/store/me/actions/setMeAction';
 import { config } from './routerConfig';
-import PostPage from '../pages/PostPage';
-import UserPage from '../pages/UserPage/components/UserPage';
+import PostPage from '../../pages/PostPage';
+import UserPage from '../../pages/UserPage/components/UserPage';
 
 const AppRoter: React.FC = () => {
   const { data, loading } = useQuery<{ me: MeInterface }>(ME);

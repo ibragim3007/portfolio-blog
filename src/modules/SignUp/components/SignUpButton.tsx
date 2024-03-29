@@ -3,7 +3,7 @@ import React from 'react';
 import { Title } from '../../../shared/ui/typography/Title';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { NavLink } from 'react-router-dom';
-import { config } from '../../../router/routerConfig';
+import { config } from '../../../app/router/routerConfig';
 import ClientProvider from '../../../shared/security/ClientProvider';
 
 const SignUpButton = () => {

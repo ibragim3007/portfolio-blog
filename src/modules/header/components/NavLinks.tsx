@@ -1,5 +1,5 @@
 import React from 'react';
-import { config } from '../../../router/routerConfig';
+import { config } from '../../../app/router/routerConfig';
 import LinkItem from './LinkItem';
 import { Grid } from '@mui/joy';
 import ClientProvider from '../../../shared/security/ClientProvider';

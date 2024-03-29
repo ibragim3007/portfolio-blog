@@ -1,6 +1,6 @@
 import React from 'react';
 import AppWidth from '../../../shared/ui/layout/AppWidth';
-import LayoutWindow from '../../../router/controller/LayoutWindow';
+import LayoutWindow from '../../../app/router/controller/LayoutWindow';
 import PostModule from '../../../components/PostCard/PostModule';
 
 const PostPage = () => {

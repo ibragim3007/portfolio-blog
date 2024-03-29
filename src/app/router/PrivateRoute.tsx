@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate, Route, RouteProps } from 'react-router-dom';
-import { Role } from '../shared/graphQL/@client/interface/meInterface';
+import { Role } from '../../shared/graphQL/@client/interface/meInterface';
 import { config } from './routerConfig';
 
 type PrivateRouteProps = RouteProps & {

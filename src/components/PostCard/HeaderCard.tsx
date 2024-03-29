@@ -9,7 +9,7 @@ import Avatar from '../Avatar/Avatar';
 import { PostResponseInterface } from '../../shared/graphQL/@post/interface/PostResponseInterface';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { NavLink } from 'react-router-dom';
-import { config } from '../../router/routerConfig';
+import { config } from '../../app/router/routerConfig';
 
 interface HeaderCardProps {
   post: Omit<PostResponseInterface, 'article'>;
