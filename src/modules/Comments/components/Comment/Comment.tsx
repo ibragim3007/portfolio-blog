@@ -1,4 +1,5 @@
 import { IComment } from '@/shared/graphQL/@comment/interface/CommentInterface';
+import { getTimeUSA } from '@/shared/helpers/ToTime';
 import { Card } from '@/shared/ui/layout/Card';
 import { Title } from '@/shared/ui/typography/Title';
 import { Grid } from '@mui/joy';
@@ -9,8 +10,9 @@ interface CommentProps {
 }
 const Comment: React.FC<CommentProps> = ({ comment }) => {
   return (
-    <Card style={{ width: '100%' }}>
+    <Card style={{ background: 'transparent' }}>
       <Grid gap={2} container flexDirection="column">
+        <Title>{getTimeUSA(comment.createDate)}</Title>
         <Title variant="title">{comment.user.firstName}</Title>
         <Title variant="text">{comment.text}</Title>
       </Grid>

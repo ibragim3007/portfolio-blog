@@ -13,9 +13,9 @@ export const Textarea = styled.textarea<TextareaProps>`
   font-size: 16px;
   background-color: var(--card-rgb);
   border: 1px solid var(--border-color);
-  border-color: ${props => detectColorInput(props.color || 'primary')};
+  border-color: ${(props) => detectColorInput(props.color || 'primary')};
   outline: none;
-  width: ${props => (props.fullWidth ? '100%' : 'auto')};
+  width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
   color: var(--text-color);
   resize: vertical;
   max-height: 600px;

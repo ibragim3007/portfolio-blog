@@ -6,22 +6,22 @@ export const GET_POST_BY_ID = gql`
       id
       title
       article
-      author {
-        id
-        firstName
-        lastName
-      }
-      createDate
       likesAmount
+      createDate
+      likedBy {
+        userId
+      }
       comments {
         id
         text
+        likesAmount
         user {
           firstName
         }
       }
-      likedBy {
-        userId
+      author {
+        firstName
+        lastName
       }
     }
   }

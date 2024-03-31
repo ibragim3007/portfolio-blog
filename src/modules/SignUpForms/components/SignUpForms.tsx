@@ -9,7 +9,7 @@ import { checkInputValue } from '../store/actions/checkInputValue';
 import { changeValueInput } from '../store/actions/changeValueInput';
 
 const SignUpForms = () => {
-  const { fields } = useAppSelector(state => state.signUpReducer);
+  const { fields } = useAppSelector((state) => state.signUpReducer);
   const dispath = useAppDispatch();
 
   const [open, setOpen] = useState(false);

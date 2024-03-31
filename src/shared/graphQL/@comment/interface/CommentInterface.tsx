@@ -12,3 +12,8 @@ export interface IComment {
   likedBy: { userId: string };
   createDate: Date;
 }
+
+export interface IAddComment {
+  text: string;
+  postId: string;
+}

@@ -1,24 +1,25 @@
-import React, { useEffect } from 'react';
-import PostCard from './PostCard';
 import { useLazyQuery } from '@apollo/client';
-import { GET_POST_BY_ID } from '../../shared/graphQL/@post/postById';
-import { PostResponseInterface } from '../../shared/graphQL/@post/interface/PostResponseInterface';
+import { Suspense, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { PostResponseInterface } from '../../shared/graphQL/@post/interface/PostResponseInterface';
+import { GET_POST_BY_ID } from '../../shared/graphQL/@post/postById';
+import { useAppSelector } from '../../shared/hooks/redux/reduxHooks';
 import { Title } from '../../shared/ui/typography/Title';
 import LoadingCircle from '../Loading/LoadingCircle';
-import { useAppSelector } from '../../shared/hooks/redux/reduxHooks';
-import Comment from '../Comment';
+import PostCard from './PostCard';
+
+import LazyComments from '@/modules/Comments';
 import { Grid } from '@mui/joy';
+import FormAddComments from '@/modules/Comments/components/FormAddComments/FormAddComments';
 
 const PostModule = () => {
   const { me } = useAppSelector((state) => state.meReducer);
   const { postId } = useParams();
 
-  console.log(postId);
   const [getPostById, { data, loading, error }] = useLazyQuery<
     { getPostById: PostResponseInterface },
     { data: { id: string } }
-  >(GET_POST_BY_ID);
+  >(GET_POST_BY_ID, { fetchPolicy: 'network-only' });
 
   useEffect(() => {
     if (postId)
@@ -40,12 +41,10 @@ const PostModule = () => {
     <>
       <PostCard isMyPost={isMyPost} post={data.getPostById} />
       <Grid gap={1} container flexDirection="column" style={{ marginTop: '2em' }}>
-        <Title variant="title" style={{ margin: 10 }}>
-          Comments
-        </Title>
-        {data.getPostById.comments.map((comment) => (
-          <Comment key={comment.id} comment={comment} />
-        ))}
+        <Suspense fallback="loading...">
+          <FormAddComments postId={data.getPostById.id} />
+          <LazyComments comments={data.getPostById.comments} />
+        </Suspense>
       </Grid>
     </>
   );
