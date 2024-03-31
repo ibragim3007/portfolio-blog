@@ -5,6 +5,27 @@ type ThemeProviderProsp = PropsWithChildren;
 
 export function ThemeProvider({ children }: ThemeProviderProsp) {
   const theme = extendTheme({
+    components: {
+      JoyIconButton: {
+        defaultProps: {
+          style: {
+            borderRadius: 12,
+          },
+        },
+      },
+      JoyButton: {
+        styleOverrides: {
+          root: {
+            borderRadius: 12,
+          },
+        },
+        defaultProps: {
+          style: {
+            borderRadius: 12,
+          },
+        },
+      },
+    },
     colorSchemes: {
       light: {
         palette: {},
