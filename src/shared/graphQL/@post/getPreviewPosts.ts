@@ -6,10 +6,9 @@ export const GET_PREVIEW_POSTS = gql`
       id
       title
       likesAmount
-      comments {
-        id
-      }
+      commentsAmount
       author {
+        id
         firstName
         lastName
       }

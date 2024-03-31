@@ -6,7 +6,7 @@ import ClientProvider from '../../../shared/security/ClientProvider';
 import { useAppSelector } from '../../../shared/hooks/redux/reduxHooks';
 
 const NavLinks = () => {
-  const { me } = useAppSelector(state => state.meReducer);
+  const { me } = useAppSelector((state) => state.meReducer);
   return (
     <Grid container gap={2}>
       <LinkItem to={config.feed}>Feed</LinkItem>

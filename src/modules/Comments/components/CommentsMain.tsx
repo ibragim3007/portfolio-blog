@@ -10,7 +10,7 @@ interface CommentsMainProps {
 
 const CommentsMain: React.FC<CommentsMainProps> = ({ comments }) => {
   return (
-    <Grid gap={1} container flexDirection="column" style={{ marginTop: '2em' }}>
+    <Grid gap={2} container flexDirection="column" style={{ marginTop: '2em' }}>
       <Title variant="title">{comments.length > 0 ? 'Comments' : 'There is no comments'}</Title>
 
       {comments.map((comment) => (

@@ -13,7 +13,8 @@ import CommentIcon from '@mui/icons-material/Comment';
 import { config } from '../../app/router/routerConfig';
 import { useDeletePost } from '@/shared/hooks/entities/post/useDeletePost';
 import LoadingCircle from '../Loading/LoadingCircle';
-
+import { motion } from 'framer-motion';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 interface HeaderCardProps {
   post: Omit<PostResponseInterface, 'article'>;
   showTools?: boolean;
@@ -25,22 +26,30 @@ export const HeaderCard: React.FC<HeaderCardProps> = ({ post, showTools }) => {
   return (
     <Grid container justifyContent="space-between" alignItems="center">
       <Grid container alignItems="center" gap={3}>
-        <NavLink to={`${config.user}/${post.author.id}`}>
-          <Grid gap={1} container flexDirection="column" alignItems="center" justifyContent="center">
-            <Avatar url="https://sm.ign.com/ign_ap/cover/a/avatar-gen/avatar-generations_hugw.jpg" />
-            <Title variant="subtitle" style={{ color: '#8e8e8e', maxWidth: 50 }}>
-              {post.author.lastName}
-            </Title>
-          </Grid>
-        </NavLink>
+        <motion.div
+          style={{ padding: '5px 0px' }}
+          whileHover={{ scale: 1.05, backgroundColor: '#8e8e8e38', borderRadius: 10, padding: '5px 5px' }}
+        >
+          <NavLink to={`${config.user}/${post.author.id}`}>
+            <Grid gap={1} container flexDirection="column" alignItems="center" justifyContent="center">
+              <Avatar url="https://sm.ign.com/ign_ap/cover/a/avatar-gen/avatar-generations_hugw.jpg" />
+              <Title variant="subtitle" style={{ color: '#8e8e8e', maxWidth: 50 }}>
+                {post.author.lastName}
+              </Title>
+            </Grid>
+          </NavLink>
+        </motion.div>
         <Grid container flexDirection="column" gap={1}>
           <Title variant="title">{post.title}</Title>
           <Grid container gap={1}>
+            <Chip color="neutral" variant="soft" startDecorator={<VisibilityIcon />}>
+              -
+            </Chip>
             <Chip color="primary" variant="soft" startDecorator={<FavoriteIcon />}>
               {post.likesAmount}
             </Chip>
-            <Chip color="neutral" variant="soft" startDecorator={<CommentIcon />}>
-              {(post.comments || []).length}
+            <Chip color="warning" variant="soft" startDecorator={<CommentIcon />}>
+              {post.commentsAmount}
             </Chip>
           </Grid>
         </Grid>

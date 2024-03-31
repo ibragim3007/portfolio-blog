@@ -1,19 +1,18 @@
 import { Grid, Stack } from '@mui/joy';
-import React from 'react';
-import { Title } from '../../../shared/ui/typography/Title';
-import { Card } from '../../../shared/ui/layout/Card';
-import ReactTech from './Technologies/ReactTech';
-import Typescript from './Technologies/Typescript';
-import MuiTech from './Technologies/MuiTech';
-import ApolloTech from './Technologies/ApolloTech';
 import CardWrapper from '../../../components/Cards/CardWrapper';
-import MyGitHub from './MyGitHub/MyGitHub';
-import FoldersScreen from './MoreFrontInfo/FoldersScreen';
-import ReduxToolkit from './Technologies/ReduxToolkit';
 import { BACK_REPO_OF_THIS_PROJECT, FRONT_REPO_OF_THIS_PROJECT } from '../../../shared/constants/LINKS';
+import { Card } from '../../../shared/ui/layout/Card';
+import { Title } from '../../../shared/ui/typography/Title';
+import MyGitHub from './MyGitHub/MyGitHub';
+import ApolloTech from './Technologies/ApolloTech';
+import MuiTech from './Technologies/MuiTech';
 import NodeJSTech from './Technologies/NodeJsTech';
-import PrismaTech from './Technologies/PrismaTech';
 import PostgreTech from './Technologies/PostgreTech';
+import PrismaTech from './Technologies/PrismaTech';
+import ReactTech from './Technologies/ReactTech';
+import ReduxToolkit from './Technologies/ReduxToolkit';
+import Typescript from './Technologies/Typescript';
+import FoldersScreen from './MoreFrontInfo/FoldersScreen';
 
 const AboutMain = () => {
   return (

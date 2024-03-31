@@ -15,8 +15,11 @@ export const GET_POST_BY_ID = gql`
         id
         text
         likesAmount
+        createDate
         user {
+          id
           firstName
+          lastName
         }
       }
       author {
