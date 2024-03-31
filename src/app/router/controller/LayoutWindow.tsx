@@ -1,5 +1,7 @@
+import { Card } from '@/shared/ui/layout/Card';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Grid, IconButton } from '@mui/joy';
+import { IconButton } from '@mui/joy';
+import { Grid } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,11 +18,20 @@ const LayoutWindow: React.FC<LayoutWindowProps> = ({ value, children }) => {
 
   return (
     <Grid container gap={3}>
-      <Grid>
-        <IconButton size="lg" onClick={clickBackButton} variant="soft">
-          <ArrowBackIcon />
-        </IconButton>
-      </Grid>
+      <Card
+        style={{
+          width: 40,
+          height: 40,
+          padding: '0px 0px',
+          alignItems: 'center',
+          justifyContent: 'center',
+          display: 'flex',
+        }}
+        onClick={clickBackButton}
+      >
+        <ArrowBackIcon />
+      </Card>
+
       <Grid xs={12}>{children}</Grid>
     </Grid>
   );

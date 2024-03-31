@@ -1,8 +1,8 @@
 import { IComment } from '@/shared/graphQL/@comment/interface/CommentInterface';
 import { Title } from '@/shared/ui/typography/Title';
 
-import { Grid } from '@mui/joy';
 import Comment from './Comment/Comment';
+import { Grid } from '@mui/material';
 
 interface CommentsMainProps {
   comments: IComment[];

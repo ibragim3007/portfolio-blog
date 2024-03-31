@@ -1,6 +1,8 @@
 import { useAddCommentToPost } from '@/shared/hooks/entities/comment/useAddCommentToPost';
 import { Textarea } from '@/shared/ui/inputs/Textarea';
-import { Button, Grid } from '@mui/joy';
+import { Button } from '@mui/joy';
+import { Grid } from '@mui/material';
+
 import { useState } from 'react';
 
 interface FormAddCommentsProps {

@@ -9,8 +9,9 @@ import LoadingCircle from '../Loading/LoadingCircle';
 import PostCard from './PostCard';
 
 import LazyComments from '@/modules/Comments';
-import { Grid } from '@mui/joy';
+
 import FormAddComments from '@/modules/Comments/components/FormAddComments/FormAddComments';
+import { Grid } from '@mui/material';
 
 const PostModule = () => {
   const { me } = useAppSelector((state) => state.meReducer);
@@ -38,7 +39,7 @@ const PostModule = () => {
 
   const isMyPost = me?.id === data?.getPostById.author.id;
   return (
-    <>
+    <Grid container>
       <PostCard isMyPost={isMyPost} post={data.getPostById} />
       <Grid gap={1} container flexDirection="column" style={{ marginTop: '2em' }}>
         <Suspense fallback="loading...">
@@ -46,7 +47,7 @@ const PostModule = () => {
           <LazyComments comments={data.getPostById.comments} />
         </Suspense>
       </Grid>
-    </>
+    </Grid>
   );
 };
 

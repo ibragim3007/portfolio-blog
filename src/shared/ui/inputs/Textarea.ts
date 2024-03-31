@@ -23,7 +23,6 @@ export const Textarea = styled.textarea<TextareaProps>`
   transition: 0.1s ease;
   &:focus {
     filter: brightness(110%);
-    transform: scale(1.01);
 
     outline: 2px solid var(--link-color);
   }

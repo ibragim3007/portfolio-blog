@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Grid } from '@mui/joy';
 import Posts from '../../../modules/Posts';
 import ClientProvider from '../../../shared/security/ClientProvider';
 import AppWidth from '../../../shared/ui/layout/AppWidth';
 
 import AddNewPost from '../../../modules/AddPostForm';
+import { Grid } from '@mui/material';
 
 const HomePage: React.FC = () => {
   return (
