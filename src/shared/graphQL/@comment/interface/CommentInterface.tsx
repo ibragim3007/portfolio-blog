@@ -9,7 +9,7 @@ export interface IComment {
   post: PostResponseInterface;
   postId: string;
   likesAmount: number;
-  likedBy: { userId: string };
+  likedBy: { userId: string }[];
   createDate: Date;
 }
 
