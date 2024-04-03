@@ -15,6 +15,7 @@ import SignUpPage from '../../pages/SignUp/components/SignUpPage';
 import { setMeAction } from '../../shared/store/me/actions/setMeAction';
 import { WrapperApp } from '../../shared/ui/layout/WrapperApp';
 import { config } from './routerConfig';
+import EditPostPageLazy from '@/pages/EditPostPage';
 
 const AppRoter: React.FC = () => {
   const { data, loading } = useQuery<{ me: MeInterface }>(ME);
@@ -35,6 +36,7 @@ const AppRoter: React.FC = () => {
             <Route path={config.feed} element={<HomePage />} />
             <Route path={config.post}>
               <Route path={':postId'} element={<PostPage />} />
+              <Route path={`:postId/${config.edit}`} element={<EditPostPageLazy />} />
             </Route>
             <Route path={config.user}>
               <Route path={':userId'} element={<LazyUserPage />} />

@@ -8,7 +8,7 @@ import { Title } from '../../shared/ui/typography/Title';
 import Avatar from '../Avatar/Avatar';
 import { PostResponseInterface } from '../../shared/graphQL/@post/interface/PostResponseInterface';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import CommentIcon from '@mui/icons-material/Comment';
 import { config } from '../../app/router/routerConfig';
 import { useDeletePost } from '@/shared/hooks/entities/post/useDeletePost';
@@ -22,6 +22,12 @@ interface HeaderCardProps {
 
 export const HeaderCard: React.FC<HeaderCardProps> = ({ post, showTools }) => {
   const { deletePostFunction, loading } = useDeletePost(post.id);
+
+  const navigate = useNavigate();
+
+  const pressEditButton = () => {
+    navigate('edit');
+  };
 
   return (
     <Grid container justifyContent="space-between" alignItems="center">
@@ -65,7 +71,7 @@ export const HeaderCard: React.FC<HeaderCardProps> = ({ post, showTools }) => {
               <MenuItem onClick={() => void deletePostFunction()} color="danger">
                 Delete
               </MenuItem>
-              <MenuItem>Edit</MenuItem>
+              <MenuItem onClick={pressEditButton}>Edit</MenuItem>
             </Menu>
           </Dropdown>
         </ClientProvider>

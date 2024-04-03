@@ -3,6 +3,7 @@ export const config = {
   about: '/about',
   admin: '/admin',
   signup: '/signup',
-  post: '/p',
-  user: '/u',
+  post: '/post',
+  user: '/user',
+  edit: 'edit',
 };

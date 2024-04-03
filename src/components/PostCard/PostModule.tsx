@@ -20,7 +20,7 @@ const PostModule = () => {
   const [getPostById, { data, loading, error }] = useLazyQuery<
     { getPostById: PostResponseInterface },
     { data: { id: string } }
-  >(GET_POST_BY_ID, { fetchPolicy: 'network-only' });
+  >(GET_POST_BY_ID);
 
   useEffect(() => {
     if (postId)
