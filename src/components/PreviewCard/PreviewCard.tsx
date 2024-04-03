@@ -15,7 +15,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ post }) => {
     <Card padding={'0px 20px'} style={{ width: '100%' }}>
       <NavLink to={`${config.post}/${post.id}`} style={{ width: '100%', padding: '20px 40px' }}>
         <Stack spacing={2}>
-          <HeaderCard post={post} showTools={false} />
+          <HeaderCard post={post} showTools={false} preview />
         </Stack>
       </NavLink>
     </Card>

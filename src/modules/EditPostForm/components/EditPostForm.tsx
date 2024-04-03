@@ -10,7 +10,8 @@ interface EditPostFormProps {
 }
 
 const EditPostForm: React.FC<EditPostFormProps> = ({ postId }) => {
-  const { title, article, onChange } = useEditPost(postId);
+  const { title, article, isEditLoading, loading, onChange, editPostFunction } = useEditPost(postId);
+
   return (
     <Card>
       <Grid container gap={2}>
@@ -18,7 +19,9 @@ const EditPostForm: React.FC<EditPostFormProps> = ({ postId }) => {
           <LabelInput label="Title" id={'title'} value={title} onChange={onChange} />
           <LabelInput label="Article" id={'article'} value={article} onChange={onChange} multiline />
         </Grid>
-        <Button>Update</Button>
+        <Button onClick={() => void editPostFunction()} loading={loading || isEditLoading}>
+          Update
+        </Button>
       </Grid>
     </Card>
   );

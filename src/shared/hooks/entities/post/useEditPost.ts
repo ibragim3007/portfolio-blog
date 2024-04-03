@@ -54,6 +54,7 @@ export const useEditPost = (id: string) => {
   return {
     title,
     article,
+    loading,
     isEditLoading,
     editPostFunction,
     onChange,

@@ -15,14 +15,16 @@ import { useDeletePost } from '@/shared/hooks/entities/post/useDeletePost';
 import LoadingCircle from '../Loading/LoadingCircle';
 import { motion } from 'framer-motion';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { useShare } from '@/shared/hooks/entities/post/useSharePost';
 interface HeaderCardProps {
   post: Omit<PostResponseInterface, 'article'>;
   showTools?: boolean;
+  preview?: boolean;
 }
 
-export const HeaderCard: React.FC<HeaderCardProps> = ({ post, showTools }) => {
+export const HeaderCard: React.FC<HeaderCardProps> = ({ post, showTools, preview }) => {
   const { deletePostFunction, loading } = useDeletePost(post.id);
-
+  const share = useShare();
   const navigate = useNavigate();
 
   const pressEditButton = () => {
@@ -62,19 +64,23 @@ export const HeaderCard: React.FC<HeaderCardProps> = ({ post, showTools }) => {
       </Grid>
       <Grid container alignItems="center" gap={2}>
         <Title variant="subtitle">{getTimeUSA(post.createDate)}</Title>
-        <ClientProvider role="USER" isShow={showTools}>
+        {!preview && (
           <Dropdown>
             <MenuButton slotProps={{ root: { variant: 'outlined', color: 'neutral' } }} slots={{ root: IconButton }}>
               {loading ? <LoadingCircle /> : <MoreVert />}
             </MenuButton>
+
             <Menu>
-              <MenuItem onClick={() => void deletePostFunction()} color="danger">
-                Delete
-              </MenuItem>
-              <MenuItem onClick={pressEditButton}>Edit</MenuItem>
+              <ClientProvider role="USER" isShow={showTools}>
+                <MenuItem onClick={() => void deletePostFunction()} color="danger">
+                  Delete
+                </MenuItem>
+                <MenuItem onClick={pressEditButton}>Edit</MenuItem>
+              </ClientProvider>
+              <MenuItem onClick={() => void share()}>Share</MenuItem>
             </Menu>
           </Dropdown>
-        </ClientProvider>
+        )}
       </Grid>
     </Grid>
   );
